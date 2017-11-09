@@ -297,35 +297,11 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['trust_simple'],
     },
-
     {
-        'name': 'my_simple_survey',
-        'display_name': "My Simple Survey",
-        'num_demo_participants': 1,
-        'app_sequence': ['jj_simple_survey'],
-    },
-
-    {
-        'name': 'JJ_publicgood',
-        'display_name': "JJ Public Goods (Simple Version)",
+        'name': 'Lottery_exp',
+        'display_name': "Lottery Choice (Yan)",
         'num_demo_participants': 3,
-        'app_sequence': ['jj_publicgood', 'survey', 'payment_info'],
-        # 'use_browser_bots': True
-    },
-    {
-        'name': 'my_trust',
-        'display_name': "My Trust Game (simple version from tutorial)",
-        'num_demo_participants': 2,
-        'app_sequence': ['my_trust'],
-    },
-
-    {
-        'name': 'my_matching_pennies',
-        'display_name': "My Matching Pennies (tutorial version)",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'my_matching_pennies',
-        ],
+        'app_sequence': ['lottery_inv', 'survey', 'payment_info'],
     },
 ]
 
