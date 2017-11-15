@@ -298,11 +298,17 @@ SESSION_CONFIGS = [
         'app_sequence': ['trust_simple'],
     },
     {
-        'name': 'Lottery_exp',
-        'display_name': "Lottery Choice (Yan)",
-        'num_demo_participants': 3,
-        'app_sequence': ['lottery_inv', 'survey', 'payment_info'],
-    },
+        'name': 'mpl',
+        'display_name': "MPL (Individual)",
+        'num_demo_participants': 1,
+        'app_sequence': ['mpl', 'survey', 'payment_info'],
+     },
+    {
+        'name': 'cem',
+        'display_name': "Certainty Equivalent (Individual)",
+        'num_demo_participants': 1,
+        'app_sequence': ['cem', 'survey', 'payment_info'],
+     },
 ]
 
 # anything you put after the below line will override
