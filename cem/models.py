@@ -22,22 +22,19 @@ class Subsession(BaseSubsession):
 
     # initiate lists before session starts in round 1
     # ----------------------------------------------------------------------------------------------------------------
-    def before_session_starts(self):
+    def creating_session(self):
         if self.round_number == 1:
 
             n = Constants.num_choices
-            m = Constants.num_finerchoices
             for p in self.get_players():
 
                 # create list of lottery indices
                 # ----------------------------------------------------------------------------------------------------
                 indices = [j for j in range(1, n + 1)]
-                indices2 = [j for j in range(1, m + 1)]
 
                 # create list corresponding to form_field variables including all choices
                 # ----------------------------------------------------------------------------------------------------
                 form_fields = ['choice_' + str(k) for k in indices]
-                form_fields2 = ['choice_' + str(k) for k in indices2]
 
                 # create list of probabilities
                 # ----------------------------------------------------------------------------------------------------
@@ -80,17 +77,6 @@ class Subsession(BaseSubsession):
                     )
                 )
 
-                p.participant.vars['cem_choices2'] = list(
-                    zip(
-                        indices2,
-                        form_fields2,
-                        # probabilities,
-                        # lottery_hi,
-                        # lottery_lo,
-                        # sure_payoffs
-                    )
-                )
-
                 # randomly determine index/choice of binary decision to pay
                 # ----------------------------------------------------------------------------------------------------
                 p.participant.vars['cem_index_to_pay'] = random.choice(indices)
@@ -126,11 +112,11 @@ class Player(BasePlayer):
     # add model fields to class player
     # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     for j in range(1, Constants.num_choices + 1):
-        locals()['choice_' + str(j)] = models.CharField()
+        locals()['choice_' + str(j)] = models.StringField()
 
     random_draw = models.IntegerField()
-    choice_to_pay = models.CharField()
-    option_to_pay = models.CharField()
+    choice_to_pay = models.StringField()
+    option_to_pay = models.StringField()
     inconsistent = models.IntegerField()
     switching_row = models.IntegerField()
 
@@ -142,7 +128,7 @@ class Player(BasePlayer):
         # ------------------------------------------------------------------------------------------------------------
         self.random_draw = randrange(1, 100)
 
-        # set <choice_to_pay> to participant.var['choice_to_pay'] determined before_session_starts
+        # set <choice_to_pay> to participant.var['choice_to_pay'] determined creating_session
         # ------------------------------------------------------------------------------------------------------------
         self.choice_to_pay = self.participant.vars['cem_choice_to_pay']
 

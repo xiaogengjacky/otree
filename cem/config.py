@@ -22,12 +22,7 @@ class Constants(BaseConstants):
 
     # number (n) of choices with <i = 1, 2, ..., n>
     # <num_choices> determines how many choices between a lottery and a sure payoff shall be implemented
-    num_choices = 10
-
-    # number (m) of finer choices with <i = 1, 2, ..., m>
-    # <num_finerchoices> determines how many choices between a lottery and a sure payoff shall be implemented in the
-    # finer list
-    num_finerchoices = 10
+    num_choices = 9
 
     # "high" and "low" payoffs (in currency units set in settings.py) of the lottery "option A"
     # the lottery payoffs remain constant if <variation = 'sure_payoff'> or <variation = 'probability'>
@@ -35,8 +30,8 @@ class Constants(BaseConstants):
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_hi> + <i-1> * <step_size>
     # if <variation = 'lottery_lo'>, <lottery_lo> constitutes the low lottery payoff for the first choice
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_lo> - <i-1> * <step_size>
-    lottery_hi = 10.00
-    lottery_lo = 0.00
+    lottery_hi = 30.00
+    lottery_lo = 10.00
 
     # probability of lottery outcome "high" in %
     # the probability of lottery payoffs is constant if <variation = 'sure_payoff'> or <variation = 'lottery_*'>
@@ -48,7 +43,7 @@ class Constants(BaseConstants):
     # the sure payoff remains constant if <variation = 'probability'> or <variation = 'lottery_*'>
     # if <variation = 'sure_payoff'>, <sure_payoff> constitutes the certain payment ("option B") in the first choice
     # for subsequent choices <i>, the certain payment is determined by <sure_payoff> + <i-1> * <step_size>
-    sure_payoff = 1.00
+    sure_payoff = 10.00
 
     # step size (in units of the parameter defined in <variation>)
     # the variable <variation> defines which of the four parameters is varied across the <num_choices> choices
@@ -56,7 +51,7 @@ class Constants(BaseConstants):
     # thus, the varying parameter for choice i = 1, 2, ..., n, <var_i>, is defined by <var> + <i-1> * <step_size>
     # if <variation> is set to 'sure_payoff', 'lottery_hi', or 'lottery_lo', <step_size> is in currency units
     # if <variation> is set to 'probability', <step_size> is in percentage units (i.e. <step_size>%)
-    step_size = 1.00
+    step_size = 2.50
 
     # initial endowment (in currency units set in settings.py)
     # <endowment> defines an additional endowment for the task to capture potential losses if <variation = lottery_lo>
@@ -89,7 +84,7 @@ class Constants(BaseConstants):
     # if <enforce_consistency = True>, all options "A" above a selected option "A" are automatically selected
     # similarly, all options "B" below a selected option "B" are automatically checked, implying consistent choices
     # note that <enforce_consistency> is only implemented if <one_choice_per_page = False> and <random_order = False>
-    enforce_consistency = True
+    enforce_consistency = False
 
     # show progress bar
     # if <progress_bar = True> and <one_choice_per_page = True>, a progress bar is rendered
@@ -97,11 +92,6 @@ class Constants(BaseConstants):
     # the progress bar graphically depicts the advance within the task in terms of how many decision have been made
     # further, information in terms of "page x out of <num_choices>" (with x denoting the current choice) is provided
     progress_bar = True
-
-    # show finer prices
-    # if <finegrid = True>, a separate template "Decision2.html" is rendered after "Decision1.html"
-    # if <finegrid = False>, only "Decision.html" is rendered
-    finegrid = True
 
     # show instructions page
     # if <instructions = True>, a separate template "Instructions.html" is rendered prior to the task
@@ -111,7 +101,7 @@ class Constants(BaseConstants):
     # show results page summarizing the task's outcome including payoff information
     # if <results = True>, a separate page containing all relevant information is displayed after finishing the task
     # if <results = False>, the template "Decision.html" will not be rendered
-    results = False
+    results = True
 
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- oTree Settings (Don't Modify) --- #

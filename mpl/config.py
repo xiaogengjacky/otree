@@ -16,10 +16,10 @@ class Constants(BaseConstants):
     # lottery payoffs
     # "high" and "low" outcomes (in currency units set in settings.py) of "lottery A" and "lottery B"
     # note that payoffs are identical for all choices and only probabilities of "high" and "low" outcomes change
-    lottery_a_hi = 4.00
-    lottery_a_lo = 3.20
-    lottery_b_hi = 7.70
-    lottery_b_lo = 0.20
+    lottery_a_hi = 2.00
+    lottery_a_lo = 1.60
+    lottery_b_hi = 3.85
+    lottery_b_lo = 0.10
 
     # number of binary choices between "lottery A" and "lottery B"
     # note that the number of choices determines the probabilities of high and low outcomes of lotteries "A" and "B"
@@ -51,7 +51,7 @@ class Constants(BaseConstants):
     # if <enforce_consistency = True>, all options "A" above a selected option "A" are automatically selected
     # similarly, all options "B" below a selected option "B" are automatically checked, implying consistent choices
     # note that <enforce_consistency> is only implemented if <one_choice_per_page = False> and <random_order = False>
-    enforce_consistency = True
+    enforce_consistency = False
 
     # depict probabilities as percentage numbers
     # if <percentage = True>, the probability of outcome "high" will be displayed as percentage number
@@ -83,7 +83,7 @@ class Constants(BaseConstants):
     # show results page summarizing the task's outcome including payoff information
     # if <results = True>, a separate page containing all relevant information is displayed after finishing the task
     # if <results = False>, the template "Decision.html" will not be rendered
-    results = True
+    results = False
 
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- oTree Settings (Don't Modify) --- #

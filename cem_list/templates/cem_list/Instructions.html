@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'cem_list/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instructions" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper instructions">
+        <p>
+            {% blocktrans trimmed with n=Constants.num_choices %}
+                In the following, you'll see a series of lists on different screens. On each screen or for each list,
+                you will need to make {{ n }} decisions. Each decision is a paired choice between "Option A"
+                and "Option B". For each row, you will choose either "A" or "B" and record these in the middle column.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo p=probability %}
+                "Option A" is a lottery that pays a higher amount with {{ p }} probability and a lower amount otherwise;
+                "Option B" yields a varying amount of payoff for sure, i.e. with a probability of 100%.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=Constants.num_choices %}
+                After you have recorded all of your choices for all lists, one list will be randomly chosen to calculate
+                payment. You payment will be determined by a randomly chosen decision out of the {{ n }} decisions in
+                that that. If you chose to opt for "Option A" in this decision, it will be randomly determined (according
+                to the specified probability) whether the low or high payoff will be your payoff; if you chose
+                to opt for "Option B", the respective sure amount will be your payoff.
+            {% endblocktrans %}
+        </p>
+        <p>
+
+            {% blocktrans trimmed with m=Constants.num_rounds %}
+            Even though you will make decisions for all {{ m }} lists, only one of the {{ m }} lists will be chosen for payment.
+            {% endblocktrans %}
+            {% blocktrans trimmed with n=Constants.num_choices %}
+                Similarly, though you make {{ n }} choices for the chosen list, only one of your decisions will be chosen
+                to implement payment. Since you will not know in advance which list or which decision will be used, you
+                should treat each list and each decision as if they have been chosen. Each list has an equal chance of
+                being used in the end. Each decision you made for the chosen list also shares an equal chance of determining
+                your payoff.
+            {% endblocktrans %}
+        </p>
+        <br/>
+        <p>
+            {% blocktrans trimmed with n=num_choices %}
+                To summarize: You will make {{ n }} choices for each list; for each decision you will have to choose between
+                "Option A" and "Option B". You may choose A for some decision rows and B for other rows. When
+                you are finished, one of the lists will be randomly picked and one of the {{ n }} decisions in that list
+                will be randomly chosen for your payoff. If you decided for "Option A", a random number will be drawn to
+                determine your earnings; if you decided for "Option B" you'll receive the respective sure amount.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    {% next_button %}
+{% endblock %}

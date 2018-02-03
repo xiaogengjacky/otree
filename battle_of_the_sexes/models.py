@@ -55,7 +55,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    decision = models.CharField(
+    decision = models.StringField(
         choices=['Football', 'Opera'],
         doc="""Either football or the opera""",
         widget=widgets.RadioSelect

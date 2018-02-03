@@ -53,9 +53,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     question_id = models.PositiveIntegerField()
-    question = models.CharField()
-    solution = models.CharField()
-    submitted_answer = models.CharField(widget=widgets.RadioSelect)
+    question = models.StringField()
+    solution = models.StringField()
+    submitted_answer = models.StringField(widget=widgets.RadioSelect)
     is_correct = models.BooleanField()
 
     def current_question(self):

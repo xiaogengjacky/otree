@@ -25,7 +25,7 @@ class Player(BasePlayer):
         verbose_name='What is your age?',
         min=13, max=125)
 
-    gender = models.CharField(
+    gender = models.StringField(
         choices=['Male', 'Female'],
         verbose_name='What is your gender?',
         widget=widgets.RadioSelect)
