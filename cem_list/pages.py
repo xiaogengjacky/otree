@@ -74,20 +74,39 @@ class Decision(Page):
 
         # if choices are displayed in tabular format
         # ------------------------------------------------------------------------------------------------------------
-        if not Constants.one_choice_per_page:
 
-            # replace choices in <choices_made>
-            for j, choice in zip(indices, form_fields):
-                choice_i = getattr(self.player, choice)
-                self.participant.vars['cem_choices_made_part1'][round_number-1][j - 1] = choice_i
+        # replace choices in <choices_made>
+        for j, choice in zip(indices, form_fields):
+            choice_i = getattr(self.player, choice)
+            self.participant.vars['cem_choices_made_part1'][round_number-1][j - 1] = choice_i
 
-            # set payoff
-            self.player.set_payoffs(round_number)
-            # determine consistency
-            self.player.set_consistency(round_number)
-            # set switching row
-            self.player.set_switching_row(round_number)
+        # set payoff
+        self.player.set_payoffs(round_number)
+        # determine consistency
+        self.player.set_consistency(round_number)
+        # set switching row
+        self.player.set_switching_row(round_number)
 
+        # if the result page is not displayed and it is in the last round, need to calculate payoff info.
+
+        if not Constants.results and round_number == Constants.num_rounds:
+            rand_num = randrange(1, Constants.num_rounds + 1)
+            # unzip <cem_choices> into list of lists
+            choices = [list(t) for t in zip(*self.participant.vars['cem_choices_part1'][rand_num - 1])]
+            indices = choices[0]
+
+            # payoff information
+            index_to_pay = self.player.participant.vars['cem_index_to_pay_part1'][rand_num - 1]
+            row_to_pay = indices.index(index_to_pay) + 1
+            choice_to_pay = self.participant.vars['cem_choices_part1'][rand_num - 1][row_to_pay - 1]
+
+            # pass to the next app
+            self.participant.vars['cem_random_list_part1p'] = rand_num
+            self.participant.vars['cem_choice_part1p'] = [choice_to_pay]
+            self.participant.vars['option_to_pay_part1p'] = self.participant.vars['option_to_pay'][rand_num - 1]
+            self.participant.vars['cem_payoff_part1p'] = self.participant.vars['cem_payoff_part1'][rand_num - 1]
+            # pass to the webpage
+            self.participant.payoff = self.participant.vars['cem_payoff_part1'][rand_num - 1]
 
 # ******************************************************************************************************************** #
 # *** PAGE RESULTS *** #

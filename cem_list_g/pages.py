@@ -131,25 +131,37 @@ class Results(Page):
         rand_num = self.player.group.random_list
 
         # payoff information
+
         row_to_pay = self.player.group.choice_to_pay
         choice_to_pay = self.participant.vars['cem_choices'][rand_num - 1][row_to_pay - 1]
         option_to_pay_p = self.participant.vars['cem_choices_made'][rand_num - 1][row_to_pay - 1]
+        if Constants.combined_use:
+            self.participant.payoff = self.participant.vars['cem_payoff_part1p'] + self.participant.vars['cem_payoff']
+            return {
+                'list_to_pay_part1': self.participant.vars['cem_random_list_part1p'],
+                'choice_to_pay_part1': self.participant.vars['cem_choice_part1p'],
+                'option_to_pay_part1': self.participant.vars['option_to_pay_part1p'],
+                'list_to_pay': rand_num,
+                'choice_to_pay': [choice_to_pay],
+                'option_to_pay': self.player.group.option_to_pay,
+                'option_to_pay_p': option_to_pay_p,
+                # 'payoff':         self.player.payoff
+                'payoff_part1': self.participant.vars['cem_payoff_part1p'],
+                'payoff_part2': self.participant.vars['cem_payoff'],
+                'payoff': self.participant.payoff
+            }
+        else:
+            self.participant.payoff = self.participant.vars['cem_payoff']
+            return {
+                'list_to_pay': rand_num,
+                'choice_to_pay': [choice_to_pay],
+                'option_to_pay': self.player.group.option_to_pay,
+                'option_to_pay_p': option_to_pay_p,
+                # 'payoff':         self.player.payoff
+                'payoff_part2': self.participant.vars['cem_payoff'],
+                'payoff': self.participant.payoff
+            }
 
-        self.participant.payoff = self.participant.vars['cem_payoff_part1p'] + self.participant.vars['cem_payoff']
-
-        return {
-            'list_to_pay_part1': self.participant.vars['cem_random_list_part1p'],
-            'choice_to_pay_part1': self.participant.vars['cem_choice_part1p'],
-            'option_to_pay_part1': self.participant.vars['option_to_pay_part1p'],
-            'list_to_pay':    rand_num,
-            'choice_to_pay':  [choice_to_pay],
-            'option_to_pay':  self.player.group.option_to_pay,
-            'option_to_pay_p':  option_to_pay_p,
-            # 'payoff':         self.player.payoff
-            'payoff_part1':     self.participant.vars['cem_payoff_part1p'],
-            'payoff_part2':     self.participant.vars['cem_payoff'],
-            'payoff':       self.participant.payoff
-        }
 
 
 

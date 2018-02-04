@@ -9,6 +9,18 @@ from otree.constants import BaseConstants
 # ******************************************************************************************************************** #
 class Constants(BaseConstants):
 
+
+    # ---------------------------------------------------------------------------------------------------------------- #
+    # --- setting for multiple app use --- #
+    # ---------------------------------------------------------------------------------------------------------------- #
+    # whether the app is preceded by the individual decision making task
+    combined_use = True
+
+    # ---------------------------------------------------------------------------------------------------------------- #
+    # --- set group size ---#
+    # note the actual group size is determined by setting.py. this number is only used for instruction purpose
+    # ---------------------------------------------------------------------------------------------------------------- #
+    group_size = 3
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- Task-specific Settings --- #
     # ---------------------------------------------------------------------------------------------------------------- #
@@ -103,12 +115,6 @@ class Constants(BaseConstants):
     # if <results = True>, a separate page containing all relevant information is displayed after finishing the task
     # if <results = False>, the template "Decision.html" will not be rendered
     results = True
-
-    # ---------------------------------------------------------------------------------------------------------------- #
-    # --- setting for multiple app use --- #
-    # ---------------------------------------------------------------------------------------------------------------- #
-    # whether the app is preceded by the individual decision making task
-    combined_use = True
 
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- oTree Settings (Don't Modify) --- #
