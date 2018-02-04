@@ -110,4 +110,4 @@ class Constants(BaseConstants):
 
     name_in_url = 'cem_list'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 6
