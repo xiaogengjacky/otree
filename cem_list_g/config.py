@@ -30,20 +30,20 @@ class Constants(BaseConstants):
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_hi> + <i-1> * <step_size>
     # if <variation = 'lottery_lo'>, <lottery_lo> constitutes the low lottery payoff for the first choice
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_lo> - <i-1> * <step_size>
-    lottery_hi = (30.00, 20.00, 10.00)
-    lottery_lo = (0.00, 0.00, 0.00)
+    lottery_hi = (10.00, 10.00, 10.00, -10.00, -10.00, -10.00)
+    lottery_lo = (0.00, 0.00, 0.00, 0.00, 0.00, 0.00)
 
     # probability of lottery outcome "high" in %
     # the probability of lottery payoffs is constant if <variation = 'sure_payoff'> or <variation = 'lottery_*'>
     # if <variation = 'probability'>, <probability> determines the likelihood of the high payoff in the first choice
     # for subsequent choices <i>, the probability is determined by <probability> + <i-1> * <step_size>
-    probability = (50, 50, 50)
+    probability = (5, 50, 95, 5, 50, 95)
 
     # sure payoff ("option B")
     # the sure payoff remains constant if <variation = 'probability'> or <variation = 'lottery_*'>
     # if <variation = 'sure_payoff'>, <sure_payoff> constitutes the certain payment ("option B") in the first choice
     # for subsequent choices <i>, the certain payment is determined by <sure_payoff> + <i-1> * <step_size>
-    sure_payoff = (10.00, 5.00, 0.00)
+    sure_payoff = (0, 2.50, 5.00, 0, -2.50, -5.00)
 
     # step size (in units of the parameter defined in <variation>)
     # the variable <variation> defines which of the four parameters is varied across the <num_choices> choices
@@ -51,7 +51,7 @@ class Constants(BaseConstants):
     # thus, the varying parameter for choice i = 1, 2, ..., n, <var_i>, is defined by <var> + <i-1> * <step_size>
     # if <variation> is set to 'sure_payoff', 'lottery_hi', or 'lottery_lo', <step_size> is in currency units
     # if <variation> is set to 'probability', <step_size> is in percentage units (i.e. <step_size>%)
-    step_size = (2.50, 2.00, 1.50)
+    step_size = (0.2, 0.5, 0.5, -0.2, -0.5, -0.5)
 
     # initial endowment (in currency units set in settings.py)
     # <endowment> defines an additional endowment for the task to capture potential losses if <variation = lottery_lo>
