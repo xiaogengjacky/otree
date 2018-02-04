@@ -27,10 +27,10 @@
     <div class="wrapper instructions">
         <p>
             {% blocktrans trimmed with n=Constants.num_choices group_size=Constants.group_size num_lists=Constants.num_rounds %}
-                In the following, you'll complete a series <b>group</b>> task with a group of {{ group_size }} people
+                In the following, you'll complete a series of <b>group</b> tasks with a group of {{ group_size }} people
                 (including yourself). You and each member in your group will face {{ n }} decisions listed on each of
-                your screens. On each screen, you will complete a set of choices. Each decision is a paired choice
-                between "Option A" and "Option B". You will make {{ n }} choices and record these in the middle column.
+                your screens. On each screen, you will vote for your group's choices. Each decision is a paired choice
+                between "Option A" and "Option B". You will make {{ n }} votes and record these in the middle column.
                 There will be a total of {{ num_lists }} screens (lists).
             {% endblocktrans %}
         </p>
@@ -42,18 +42,18 @@
         </p>
         <p>
             {% blocktrans trimmed with n=Constants.num_choices num_lists=Constants.num_rounds%}
-                After you and your group members have made all of your choices for all screens, one of the screens (lists)
-                will be randomly picked by the computer for payment. For all the paired choices you made on that picked
-                screen, one of the {{ n }} decisions you made will be randomly chosen for your payment. If your group,
-                <b>by a majority voting rule</b>, chose to opt for "Option A" in this decision, it will be randomly
+                After you and your group members have made all of your votes for all screens, one of the screens (lists)
+                will be randomly picked by the computer for payment. For all the paired choices you voted on that picked
+                screen, one of the {{ n }} decisions will be randomly chosen for your group's payment. If your group,
+                <b>by a majority voting rule</b>, voted to opt for "Option A" in this decision, it will be randomly
                 determined whether the low or high payoff will constitute your and your group members' payoff; if your
-                group, <b>by a majority voting rule</b>, chose to opt for "Option B", the respective sure amount will
+                group, <b>by a majority voting rule</b>, voted to opt for "Option B", the respective sure amount will
                 constitute your and your group members' payoffs.
             {% endblocktrans %}
         </p>
         <p>
             {% blocktrans trimmed with n=num_choices num_lists=Constants.num_rounds%}
-                Even though you will make {{ n }} decisions on each of the {{ num_lists }} screens, only one of the screen
+                Even though you will make {{ n }} votes on each of the {{ num_lists }} screens, only one of the screen
                 and one decision in that screen will end up affecting your and group members' earnings, but you will
                 not know in advance which decision will be used. Each decision has an equal chance of being used in the end.
             {% endblocktrans %}
@@ -62,7 +62,7 @@
         <p>
             {% blocktrans trimmed with n=num_choices %}
                 To summarize: Your group will make {{ n }} choices on each screen; for each decision you will have to
-                choose between "Option A" and "Option B" with a majority voting rule. You may vote A for some decision
+                vote between "Option A" and "Option B" with a majority voting rule. You may vote A for some decision
                 rows and B for other rows. When your group is finished, one screen will be randomly chosen and one of
                 the {{ n }} decisions on that screen will be randomly picked for your group's payoff. If your group
                 decided for "Option A", a random number will be drawn to determine your earnings; if you decided
