@@ -11,8 +11,8 @@ def vars_for_all_templates(self):
     round_number = self.subsession.round_number
     return{
         'endowment': c(self.player.participant.vars['environment'][round_number - 1][1]),
-        'probability': self.player.participant.vars['environment'][round_number - 1][2],
-        'return': self.player.participant.vars['environment'][round_number - 1][3] - 1
+        'probability': round(self.player.participant.vars['environment'][round_number - 1][2], 2),
+        'return': round(self.player.participant.vars['environment'][round_number - 1][3] - 1, 2)
     }
 
 
@@ -62,15 +62,19 @@ class Results(Page):
         rand_num = randrange(1, Constants.num_rounds + 1)
         # unzip <cem_choices> into list of lists
         choices = self.participant.vars['environment'][rand_num - 1]
-        round_num = choices[0]
         endowment = choices[1]
+        probability = round(choices[2], 2)
+        return_rate = round(choices[3] - 1, 2)
+
 
         self.participant.payoff = self.participant.vars['payoff'][rand_num - 1]
 
         return {
             'round_to_pay': rand_num,
-            # 'endowment': endowment,
-            # 'investment': self.participant.vars['investment'][rand_num - 1],
+            'chosen_endowment': endowment,
+            'chosen_investment': self.participant.vars['investment'][rand_num - 1],
+            'chosen_probability': probability,
+            'chosen_return': return_rate,
             'payoff': self.participant.vars['payoff'][rand_num - 1],
         }
 

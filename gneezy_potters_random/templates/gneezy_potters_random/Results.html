@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-<p> Round {{ round_to_pay }} has been chosen for payment. The probability of making a profit from the investment was
+<p> Round {{ round_to_pay }} has been chosen for payment. The probability of success from the investment was
     {{ chosen_probability }} and the return rate was {{ chosen_return }}. You and your group members each had
     {{ chosen_endowment }} in the round and you invested {{ investment_p }} as member {{ id_self }}. Member {{ id_other1 }}
-    invested {{ investment_p1 }} and member {{ id_other2 }} invested {{ investment_p2 }}.
-    Each member's payoff from the round is {{ payoff }}.
+    invested {{ investment_p1 }} and member {{ id_other2 }} invested {{ investment_p2 }}. Member {{ chosen_member }}'s
+    decision has been chosen so each member's payoff from the round is {{ payoff }}.
 
 
 </p>

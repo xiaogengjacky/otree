@@ -8,23 +8,17 @@
 {% block content %}
 
     <p>
-        In this study, you will be in a randomly formed group
-        of {{ Constants.players_per_group }} participants. Each participant in
-        the group is given {{ Constants.endowment }}. The group
-        has the opportunity to undertake a joint project. Each participant in
-        the group decides how much she or he is going to contribute to
-        the project. Contribution could be any integer from 0
-        to {{ Constants.endowment }}.
+        In this experiment, you will make a series of investment decisions. In each round of the experiment, you
+    will be given a budget and have an opportunity to invest. Both the rate of return and odd of success will be provided.
     </p>
     <p>
-        The earnings from the project are calculated as follows: The
-        contributions of all {{ Constants.players_per_group }} participants are
-        added up, the total contribution
-        is multiplied by a factor of {{ Constants.multiplier }}, and the
-        resulting amount is the total earnings from the project, which is
-        evenly split among all {{ Constants.players_per_group }}
-        participants. Your payoff equals your earnings from the project, plus
-        the amount you did not contribute.
+        The earnings from the investment are calculated as follows: Investment Return = Return Rate * Investment Amount.
+    Your total earning from a certain round will be: Total Earnings = Budget + Investment Return if the investment is
+        successful; Total Earnings = Budget - Investment Amount if the investment fails.
+    </p>
+    <p>
+        At the end of the experiment, one round will be randomly chosen for payment and your total earnings from that
+    round will be your final earnings for the experiment.
     </p>
 
     {% next_button %}

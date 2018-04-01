@@ -129,6 +129,9 @@ class Results(Page):
 
         # retrieve random selected list number from group class
         rand_num = self.player.group.random_list
+        id_self = self.player.id_in_group
+        id_other1 = self.player.get_others_in_group()[0].id_in_group
+        id_other2 = self.player.get_others_in_group()[1].id_in_group
 
 
         # payoff information

@@ -9,7 +9,11 @@ from random import randrange
 
 def vars_for_all_templates(self):
     round_number = self.subsession.round_number
+    within_id = self.player.id_in_group
+    weight = round(Constants.weight[within_id - 1], 2)
     return{
+        'within_id': within_id,
+        'weight': weight,
         'endowment': c(Constants.endowment[round_number - 1]),
         'probability': round(Constants.probability[round_number - 1], 2),
         'return': round(Constants.multiplier[round_number - 1] - 1, 2)
@@ -67,6 +71,7 @@ class Results(Page):
     def vars_for_template(self):
 
         rand_num = self.player.group.random_round
+        selection = self.player.group.selection
         id_self = self.player.id_in_group
         id_other1 = self.player.get_others_in_group()[0].id_in_group
         id_other2 = self.player.get_others_in_group()[1].id_in_group
@@ -92,6 +97,7 @@ class Results(Page):
             'chosen_endowment': c(endowment),
             'chosen_probability': round(probability, 2),
             'chosen_return': round(return_rate, 2),
+            'chosen_member': selection,
             'payoff': self.participant.vars['payoff']
         }
 

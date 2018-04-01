@@ -338,6 +338,12 @@ SESSION_CONFIGS = [
         'display_name': "Investment Game (GP Group)",
         'num_demo_participants': 3,
         'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
+    },
+{
+        'name': 'gneezy_potters_random',
+        'display_name': "Investment Game (GP Group Random)",
+        'num_demo_participants': 3,
+        'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
     }
 
 ]
