@@ -129,6 +129,8 @@
                 </p>
 
             </div>
+
+{#       This is the non-combined use part     #}
         {% else %}
             <div class="panel panel-default info">
                 <p>
@@ -193,7 +195,7 @@
             <div class="panel panel-default">
             <p>
                     {% blocktrans trimmed with list_to_pay=list_to_pay %}
-                        Your group (with the majority voting rule) made the following choice:
+                        Your group (by randomly selecting one choice) made the following choice:
                     {% endblocktrans %}
                 </p>
             </div>

@@ -10,10 +10,12 @@ from random import randrange
 # --------------------------------------------------------------------------------------------------------------------
 def vars_for_all_templates(self):
     round_number = self.subsession.round_number
+    player_id = self.player.id_in_group
     return {
         'lottery_lo':  c(Constants.lottery_lo[round_number-1]),
         'lottery_hi':  c(Constants.lottery_hi[round_number-1]),
-        'probability': "{0:.1f}".format(Constants.probability[round_number-1]) + "%"
+        'probability': "{0:.1f}".format(Constants.probability[round_number-1]) + "%",
+        'weight':   "{0:.1f}".format(Constants.weights[player_id - 1]*100) + "%"
     }
 
 
@@ -22,6 +24,11 @@ def vars_for_all_templates(self):
 # ******************************************************************************************************************** #
 class Instructions(Page):
 
+    # pass the values of weights to template
+    # ----------------------------------------------------------------------------------------------------------------
+    # def vars_for_template(self):
+    #     weight = Constants.weights[self.player.id_in_group - 1]
+    #     return weight
     # only display instruction in round 1
     # ----------------------------------------------------------------------------------------------------------------
     def is_displayed(self):
@@ -129,17 +136,17 @@ class Results(Page):
 
         # retrieve random selected list number from group class
         rand_num = self.player.group.random_list
-
+        id_self = self.player.id_in_group
+        id_other1 = self.player.get_others_in_group()[0].id_in_group
+        id_other2 = self.player.get_others_in_group()[1].id_in_group
 
         # payoff information
 
         row_to_pay = self.player.group.choice_to_pay
         choice_to_pay = self.participant.vars['cem_choices'][rand_num - 1][row_to_pay - 1]
         option_to_pay_p = self.participant.vars['cem_choices_made'][rand_num - 1][row_to_pay - 1]
-        option_to_pay_p1 = self.player.get_others_in_group()[0].participant.vars['cem_choices_made'][rand_num - 1][
-            row_to_pay - 1]
-        option_to_pay_p2 = self.player.get_others_in_group()[1].participant.vars['cem_choices_made'][rand_num - 1][
-            row_to_pay - 1]
+        option_to_pay_p1 = self.player.get_others_in_group()[0].participant.vars['cem_choices_made'][rand_num - 1][row_to_pay - 1]
+        option_to_pay_p2 = self.player.get_others_in_group()[1].participant.vars['cem_choices_made'][rand_num - 1][row_to_pay - 1]
         if Constants.combined_use:
             self.participant.payoff = self.participant.vars['cem_payoff_part1p'] + self.participant.vars['cem_payoff']
             return {

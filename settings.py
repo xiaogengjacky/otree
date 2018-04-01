@@ -315,11 +315,29 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['cem_list_g', 'survey', 'payment_info'],
     },
-    {
-        'name': 'group_risk',
-        'display_name': "Group Risky Decision Making",
+{
+        'name': 'cem_list_random',
+        'display_name': "Certainty Equivalent (Group Random Selection)",
         'num_demo_participants': 3,
-        'app_sequence': ['cem_list', 'cem_list_g', 'survey', 'payment_info'],
+        'app_sequence': ['cem_list_random'],
+    },
+    # {
+    #     'name': 'group_risk',
+    #     'display_name': "Group Risky Decision Making",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['cem_list', 'cem_list_g', 'survey', 'payment_info'],
+    # },
+    {
+        'name': 'gneezy_potters',
+        'display_name': "Investment Game (GP)",
+        'num_demo_participants': 1,
+        'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
+    },
+    {
+        'name': 'gneezy_potters_group',
+        'display_name': "Investment Game (GP Group)",
+        'num_demo_participants': 3,
+        'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
     }
 
 ]

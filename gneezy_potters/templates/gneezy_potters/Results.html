@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block content %}
+<p> Round {{ round_to_pay }} has been chosen for payment. You had {{ endowment }} in the round and you invested
+    {{ investment }}. You payoff from the round is {{ payoff }}.
+
+
+</p>
+    {% next_button %}
+{% endblock %}
+
+
