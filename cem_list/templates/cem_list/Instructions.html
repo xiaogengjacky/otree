@@ -34,8 +34,8 @@
             {% endblocktrans %}
         </p>
         <p>
-            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo p=probability %}
-                "Option A" is a lottery that pays a higher amount with {{ p }} probability and a lower amount otherwise;
+            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo %}
+                "Option A" is a lottery that pays a higher amount with certain probabilities and a lower amount otherwise;
                 "Option B" yields a varying amount of payoff for sure, i.e. with a probability of 100%.
             {% endblocktrans %}
         </p>

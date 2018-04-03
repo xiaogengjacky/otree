@@ -40,8 +40,8 @@
             {% endblocktrans %}
         </p>
         <p>
-            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo p=probability %}
-                On each screen "Option A" is a lottery that pays {{ hi }} with {{ p }} probability and {{ lo }}
+            {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo %}
+                On each screen "Option A" is a lottery that pays {{ hi }} with certain probabilities and {{ lo }}
                 otherwise; "Option B" yields a varying payoff for sure, i.e. with a probability of 100%.
             {% endblocktrans %}
         </p>

@@ -56,7 +56,7 @@ class Constants(BaseConstants):
     # initial endowment (in currency units set in settings.py)
     # <endowment> defines an additional endowment for the task to capture potential losses if <variation = lottery_lo>
     # if no additional endowment should be implemented, set <endowment> to 0
-    endowment = 0.00
+    endowment = 100.00
 
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- Overall Settings and Appearance --- #
