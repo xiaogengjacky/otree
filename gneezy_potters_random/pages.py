@@ -12,6 +12,7 @@ def vars_for_all_templates(self):
     within_id = self.player.id_in_group
     weight = round(Constants.weight[within_id - 1], 2)
     return{
+        'group_size': Constants.players_per_group,
         'within_id': within_id,
         'weight': weight,
         'endowment': c(Constants.endowment[round_number - 1]),
@@ -84,6 +85,10 @@ class Results(Page):
         probability = choices[2]
         return_rate = choices[3] - 1
 
+        if self.player.group.winner == 1:
+            outcome = "successful"
+        else:
+            outcome = "unsuccessful"
         self.player.participant.payoff = self.participant.vars['payoff']
 
         return {
@@ -94,10 +99,13 @@ class Results(Page):
             'investment_p': investment_p,
             'investment_p1': investment_p1,
             'investment_p2': investment_p2,
+            'group_investment': self.player.group.investment,
             'chosen_endowment': c(endowment),
             'chosen_probability': round(probability, 2),
             'chosen_return': round(return_rate, 2),
             'chosen_member': selection,
+            'group_payoff': c(round(self.participant.vars['payoff']*3, 0)),
+            'outcome': outcome,
             'payoff': self.participant.vars['payoff']
         }
 

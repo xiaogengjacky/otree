@@ -11,6 +11,7 @@ from random import randrange
 def vars_for_all_templates(self):
     round_number = self.subsession.round_number
     return {
+        'endowment': c(Constants.endowment),
         'lottery_lo':  c(Constants.lottery_lo[round_number-1]),
         'lottery_hi':  c(Constants.lottery_hi[round_number-1]),
         'probability': "{0:.1f}".format(Constants.probability[round_number-1]) + "%"

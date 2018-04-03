@@ -27,19 +27,22 @@
     <div class="wrapper instructions">
         <p>
             {% blocktrans trimmed with n=Constants.num_choices group_size=Constants.group_size num_lists=Constants.num_rounds %}
+                You will have an initial balance of {{ endowment }} to start the experiment.
                 In the following, you'll complete a series of <b>group</b> tasks. There will be {{group_size}} members in
-                your group (including yourself). You and each member in your group will face {{ n }} decisions listed on each of
-                your screens. On each screen, you will make decisions for your group by choosing either Option A or Option B
-                in each row. At the end of this task, each member in your group will receive exactly the same amount.
-                When we determine the group payment, one of the group member's decision will be randomly selected.
-                The probability that your decision will be selected is {{ weight }}. On each screen you will make {{ n }}
-                decisions and record these in the middle column. There will be a total of {{ num_lists }} screens (lists).
+                your group (including yourself). You and each member in your group will face {{ n }} decisions listed on
+                each of your screens. On each screen, you will make decisions for your group by choosing either "Option A"
+                or Option B in each row. At the end of this task, each member in your group will receive exactly the
+                same amount. When we determine the group payment, one of the group member's decision will be randomly
+                selected. The probability that your decision will be selected is {{ weight }}. On each screen you will
+                make {{ n }} decisions and record these in the middle column. There will be a total of {{ num_lists }}
+                screens (lists).
+
             {% endblocktrans %}
         </p>
         <p>
             {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo p=probability %}
-                On each screen "Option A" is a lottery that pays {{ hi }} with {{ p }} probability and {{ lo }} otherwise;
-                "Option B" yields a varying payoff for sure, i.e. with a probability of 100%.
+                On each screen "Option A" is a lottery that pays {{ hi }} with {{ p }} probability and {{ lo }}
+                otherwise; "Option B" yields a varying payoff for sure, i.e. with a probability of 100%.
             {% endblocktrans %}
         </p>
         <p>
@@ -48,29 +51,31 @@
                 will be randomly picked by the computer for payment. For all the paired choices you made on that picked
                 screen, one of the {{ n }} decisions will be randomly chosen for your group's payment. If your group,
                 <b>by randomly selecting one member's choice</b>, opts for "Option A" in this decision, it will be randomly
-                determined whether the low or high payoff will constitute your and your group members' payoff; if your
-                group, <b>by randomly selecting one member's choice</b>, opts for "Option B", the respective sure amount will
-                constitute your and your group members' payoffs.
+                determined whether the low or high payoff will constitute your group’s payoff; if your group,
+                <b>by randomly selecting one member's choice</b>, opts for "Option B", the respective sure amount will
+                constitute your group’s payoff. The group payoff will then be divided equally among the {{ group_size }}
+                members which will also be the individual payoff for each member.
             {% endblocktrans %}
         </p>
         <p>
             {% blocktrans trimmed with n=num_choices num_lists=Constants.num_rounds%}
                 Even though you will make {{ n }} votes on each of the {{ num_lists }} screens, only one of the screen
                 and one decision in that screen will end up affecting your and group members' earnings, but you will
-                not know in advance which decision will be used. Each decision has an equal chance of being used in the end.
+                not know in advance which decision will be used. Each decision has an equal chance of being used in the
+                end.
             {% endblocktrans %}
         </p>
         <br/>
         <p>
             {% blocktrans trimmed with n=num_choices %}
-                To summarize: You will make {{ n }} choices on each screen; for each decision you will have to
-                choose between "Option A" and "Option B" while bearing in mind that there is a {{ weight }} chance that
-                your decision will determine everyone's payoff in your group. You may choose A for some decision
-                rows and B for other rows. When your group is finished, one screen will be randomly chosen and one of
-                the {{ n }} decisions on that screen will be randomly picked for your group's payoff. If your group
-                decided for "Option A", a random number will be drawn to determine your earnings; if your group decided
-                for "Option B" you'll receive the respective sure amount. <u>All members in the same group will receive
-                exactly the same amount.</u>
+                To summarize: You will make {{ n }} choices on each screen; for each decision you will have to choose
+                between "Option A" and "Option B" while bearing in mind that there is a {{ weight }} chance that your
+                decision will determine everyone's payoff in your group. You may choose A for some decision rows and B
+                for other rows. When your group is finished, one screen will be randomly chosen and one of the {{ n }}
+                decisions on that screen will be randomly picked for your group's payoff. If your group decided for
+                "Option A", a random number will be drawn to determine your earnings; if your group decided for "Option B"
+                you'll receive the respective sure amount. <u>All members in the same group will receive exactly the
+                same amount which is the group payoff divided by {{ group_size }}.</u>
             {% endblocktrans %}
         </p>
     </div>

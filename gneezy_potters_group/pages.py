@@ -10,6 +10,7 @@ from random import randrange
 def vars_for_all_templates(self):
     round_number = self.subsession.round_number
     return{
+        'group_size': Constants.players_per_group,
         'endowment': c(Constants.endowment[round_number - 1]),
         'probability': round(Constants.probability[round_number - 1], 2),
         'return': round(Constants.multiplier[round_number - 1] - 1, 2)
@@ -79,6 +80,11 @@ class Results(Page):
         probability = choices[2]
         return_rate = choices[3] - 1
 
+        if self.player.group.winner == 1:
+            outcome = "successful"
+        else:
+            outcome = "unsuccessful"
+
         self.player.participant.payoff = self.participant.vars['payoff']
 
         return {
@@ -89,9 +95,12 @@ class Results(Page):
             'investment_p': investment_p,
             'investment_p1': investment_p1,
             'investment_p2': investment_p2,
+            'group_investment': self.player.group.investment,
             'chosen_endowment': c(endowment),
             'chosen_probability': round(probability, 2),
             'chosen_return': round(return_rate, 2),
+            'group_payoff': c(round(self.participant.vars['payoff']*3, 0)),
+            'outcome': outcome,
             'payoff': self.participant.vars['payoff']
         }
 

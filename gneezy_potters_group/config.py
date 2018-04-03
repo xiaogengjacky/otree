@@ -12,7 +12,7 @@ from otree.constants import BaseConstants
 class Constants(BaseConstants):
     name_in_url = 'gneezy_potters_group'
     players_per_group = 3
-    endowment = (100, 100, 100, 100, 100)
+    endowment = (300, 300, 300, 300, 300)
     probability = (1/20, 1/3, 1/2, 2/3, 19/20)
     multiplier = (40, 6, 4, 3, 40/19)
     num_rounds = len(probability)

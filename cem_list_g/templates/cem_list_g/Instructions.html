@@ -27,6 +27,7 @@
     <div class="wrapper instructions">
         <p>
             {% blocktrans trimmed with n=Constants.num_choices group_size=Constants.group_size num_lists=Constants.num_rounds %}
+                You will have an initial balance of {{ endowment }} to start this experiment.
                 In the following, you'll complete a series of <b>group</b> tasks. There will be {{group_size}} people in
                 your group (including yourself). You and each member in your group will face {{ n }} decisions listed on each of
                 your screens. On each screen, you will vote for your group's choices. Each decision is a paired choice

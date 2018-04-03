@@ -53,7 +53,7 @@ class Group(BaseGroup):
         self.investment = median([p.participant.vars['investment'][self.random_round - 1] for p in self.get_players()])
 
         for p in self.get_players():
-            p.payoff = endowment - self.investment + self.winner * self.investment * multiplier
+            p.payoff = (endowment - self.investment + self.winner * self.investment * multiplier)*(1/3)
             p.participant.vars['payoff'] = p.payoff
 
 

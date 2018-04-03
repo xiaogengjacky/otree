@@ -11,6 +11,7 @@ from random import randrange
 def vars_for_all_templates(self):
     round_number = self.subsession.round_number
     return {
+        'endowment': c(Constants.endowment),
         'lottery_lo':  c(Constants.lottery_lo[round_number-1]),
         'lottery_hi':  c(Constants.lottery_hi[round_number-1]),
         'probability': "{0:.1f}".format(Constants.probability[round_number-1]) + "%"
@@ -171,6 +172,7 @@ class Results(Page):
                 'option_to_pay_p1': option_to_pay_p1,
                 'option_to_pay_p2': option_to_pay_p2,
                 # 'payoff':         self.player.payoff
+                'group_payoff': c(round((self.participant.vars['cem_payoff'] - Constants.endowment)*3, 0)),
                 'payoff_part2': self.participant.vars['cem_payoff'],
                 'payoff': self.participant.payoff
             }

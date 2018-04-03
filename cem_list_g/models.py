@@ -186,11 +186,11 @@ class Group(BaseGroup):
             p.participant.vars['option_to_pay'] = self.option_to_pay
             if self.option_to_pay == 'A':
                 if self.random_draw <= choice_row[2]:
-                    p.payoff = Constants.endowment + choice_row[3]
+                    p.payoff = Constants.endowment + choice_row[3]/3
                 else:
-                    p.payoff = Constants.endowment + choice_row[4]
+                    p.payoff = Constants.endowment + choice_row[4]/3
             else:
-                p.payoff = Constants.endowment + choice_row[5]
+                p.payoff = Constants.endowment + choice_row[5]/3
             p.participant.vars['cem_payoff'] = p.payoff
 # ******************************************************************************************************************** #
 # *** CLASS PLAYER

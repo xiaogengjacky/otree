@@ -58,7 +58,7 @@ class Group(BaseGroup):
                 self.selection = k + 1
 
         for p in self.get_players():
-            p.payoff = endowment - self.investment + self.winner * self.investment * multiplier
+            p.payoff = (endowment - self.investment + self.winner * self.investment * multiplier)*(1/3)
             p.participant.vars['payoff'] = p.payoff
 
 

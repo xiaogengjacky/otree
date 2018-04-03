@@ -28,8 +28,7 @@
 
         <div class="panel panel-default info">
             {% blocktrans trimmed %}
-                Your payment information is shown below. You may need to scroll down the page to review you payoff from
-                each part. The total payment is shown at the end.
+                Your payment information is shown below.
             {% endblocktrans %}
         </div>
 
@@ -271,18 +270,20 @@
 
             <p>
                 {% blocktrans trimmed with payoff_part2=payoff_part2 %}
-                    Your as well as the other two group members' payoff in this task equals <b>{{ payoff_part2 }}</b>.
+                    Your group received a payoff of <b>{{ group_payoff }}</b>. Hence, your, as well as the other two group
+                    members', payoff in this task is <b>{{ payoff_part2 }}</b> which includes your starting balance of
+                    {{ endowment }}.
                 {% endblocktrans %}
             </p>
         </div>
 
-        <div class="panel panel-default info">
-            <p>
-                {% blocktrans trimmed with payoff=payoff %}
-                    Thus, your total earnings from the experiment is <b>{{ payoff }}</b>.
-                {% endblocktrans %}
-            </p>
-        </div>
+{#        <div class="panel panel-default info">#}
+{#            <p>#}
+{#                {% blocktrans trimmed with payoff=payoff %}#}
+{#                    Thus, your total earnings from the experiment is <b>{{ payoff }}</b>.#}
+{#                {% endblocktrans %}#}
+{#            </p>#}
+{#        </div>#}
 
     </div>
 
