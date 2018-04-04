@@ -348,6 +348,8 @@ SESSION_CONFIGS = [
 
 ]
 
+SENTRY_DSN = 'http://effa011612924da9a31880f18e1460c8:f637595de9794b54a2ff3fc367130605@sentry.otree.org/296'
+
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.
 otree.settings.augment_settings(globals())
