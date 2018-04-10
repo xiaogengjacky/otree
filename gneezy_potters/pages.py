@@ -66,6 +66,10 @@ class Results(Page):
         probability = round(choices[2], 2)
         return_rate = round(choices[3] - 1, 2)
 
+        if self.player.winner == 1:
+            outcome = "successful"
+        else:
+            outcome = "unsuccessful"
 
         self.participant.payoff = self.participant.vars['payoff'][rand_num - 1]
 
@@ -75,6 +79,7 @@ class Results(Page):
             'chosen_investment': self.participant.vars['investment'][rand_num - 1],
             'chosen_probability': probability,
             'chosen_return': return_rate,
+            'outcome': outcome,
             'payoff': self.participant.vars['payoff'][rand_num - 1],
         }
 

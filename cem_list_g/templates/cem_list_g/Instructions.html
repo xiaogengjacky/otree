@@ -46,10 +46,11 @@
                 After you and your group members have made all of your votes for all screens, one of the screens (lists)
                 will be randomly picked by the computer for payment. For all the paired choices you voted on that picked
                 screen, one of the {{ n }} decisions will be randomly chosen for your group's payment. If your group,
-                <b>by a majority voting rule</b>, voted to opt for "Option A" in this decision, it will be randomly
-                determined whether the low or high payoff will constitute your and your group members' payoff; if your
-                group, <b>by a majority voting rule</b>, voted to opt for "Option B", the respective sure amount will
-                constitute your and your group members' payoffs.
+                <b>by a majority voting rule</b>, voted to opt for "Option A" in this decision, option A will be chosen
+                for your group, and it will be randomly determined (according to the  specified probability)
+                whether the low or high payoff in option A will constitute your and your group members' payoff; if your
+                group, <b>by a majority voting rule</b>, voted to opt for "Option B", option B will be chosen your group,
+                and the respective sure amount will constitute your and your group members' payoffs.
             {% endblocktrans %}
         </p>
         <p>
@@ -65,10 +66,11 @@
                 To summarize: Your group will make {{ n }} choices on each screen; for each decision you will have to
                 vote between "Option A" and "Option B" with a majority voting rule. You may vote A for some decision
                 rows and B for other rows. When your group is finished, one screen will be randomly chosen and one of
-                the {{ n }} decisions on that screen will be randomly picked for your group's payoff. If your group
-                decided for "Option A", a random number will be drawn to determine your earnings; if you decided
-                for "Option B" you'll receive the respective sure amount. <u>All members in the same group will receive
-                exactly the same amount.</u>
+                the {{ n }} decisions on that screen will be randomly picked for your group's payoff. If your group,
+                by a majority voting rule, decided for "Option A", a random number will be drawn to determine your earnings;
+                if your group, by a majority voting rule, decided for "Option B" you'll receive the respective sure amount.
+                <u>All members in the same group will receive exactly the same amount which is the group payoff divided
+                    by {{ group_size }}.</u>
             {% endblocktrans %}
         </p>
     </div>

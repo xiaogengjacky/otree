@@ -64,7 +64,7 @@ class Constants(BaseConstants):
     # the sure payoff remains constant if <variation = 'probability'> or <variation = 'lottery_*'>
     # if <variation = 'sure_payoff'>, <sure_payoff> constitutes the certain payment ("option B") in the first choice
     # for subsequent choices <i>, the certain payment is determined by <sure_payoff> + <i-1> * <step_size>
-    sure_payoff = (0, 50, 100, -30, -250, -300)
+    sure_payoff = (0, 75, 210, -30, -225, -300)
 
     # step size (in units of the parameter defined in <variation>)
     # the variable <variation> defines which of the four parameters is varied across the <num_choices> choices
@@ -72,7 +72,7 @@ class Constants(BaseConstants):
     # thus, the varying parameter for choice i = 1, 2, ..., n, <var_i>, is defined by <var> + <i-1> * <step_size>
     # if <variation> is set to 'sure_payoff', 'lottery_hi', or 'lottery_lo', <step_size> is in currency units
     # if <variation> is set to 'probability', <step_size> is in percentage units (i.e. <step_size>%)
-    step_size = (3, 20, 20, 3, 20, 20)
+    step_size = (3, 15, 9, 3, 15, 9)
 
     # initial endowment (in currency units set in settings.py)
     # <endowment> defines an additional endowment for the task to capture potential losses if <variation = lottery_lo>
@@ -131,4 +131,4 @@ class Constants(BaseConstants):
 
     name_in_url = 'cem_list_random'
     players_per_group = 3
-    num_rounds = 2
+    num_rounds = 6

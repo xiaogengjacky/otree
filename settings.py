@@ -59,7 +59,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'SGD'
-USE_POINTS = False
+USE_POINTS = True
 
 
 
@@ -307,18 +307,21 @@ SESSION_CONFIGS = [
         'name': 'cem_list',
         'display_name': "Certainty Equivalent (Individual Choice)",
         'num_demo_participants': 1,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['cem_list', 'survey', 'payment_info'],
      },
     {
         'name': 'cem_list_g',
         'display_name': "Certainty Equivalent (Group Voting)",
         'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['cem_list_g', 'survey', 'payment_info'],
     },
 {
         'name': 'cem_list_random',
         'display_name': "Certainty Equivalent (Group Random Selection)",
         'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['cem_list_random'],
     },
     # {
@@ -331,18 +334,21 @@ SESSION_CONFIGS = [
         'name': 'gneezy_potters',
         'display_name': "Investment Game (GP)",
         'num_demo_participants': 1,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
     },
     {
         'name': 'gneezy_potters_group',
         'display_name': "Investment Game (GP Group)",
         'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
     },
 {
         'name': 'gneezy_potters_random',
         'display_name': "Investment Game (GP Group Random)",
         'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.02,
         'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
     }
 

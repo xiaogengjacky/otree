@@ -12,6 +12,7 @@ def vars_for_all_templates(self):
     round_number = self.subsession.round_number
     player_id = self.player.id_in_group
     return {
+        'group_size': Constants.players_per_group,
         'endowment': c(Constants.endowment),
         'lottery_lo':  c(Constants.lottery_lo[round_number-1]),
         'lottery_hi':  c(Constants.lottery_hi[round_number-1]),

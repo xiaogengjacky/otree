@@ -49,12 +49,13 @@
             {% blocktrans trimmed with n=Constants.num_choices num_lists=Constants.num_rounds%}
                 After you and your group members have all made decisions for all screens, one of the screens (lists)
                 will be randomly picked by the computer for payment. For all the paired choices you made on that picked
-                screen, one of the {{ n }} decisions will be randomly chosen for your group's payment. If your group,
-                <b>by randomly selecting one member's choice</b>, opts for "Option A" in this decision, it will be randomly
-                determined whether the low or high payoff will constitute your group’s payoff; if your group,
-                <b>by randomly selecting one member's choice</b>, opts for "Option B", the respective sure amount will
-                constitute your group’s payoff. The group payoff will then be divided equally among the {{ group_size }}
-                members which will also be the individual payoff for each member.
+                screen, one of the {{ n }} decisions will be randomly chosen for your group's payment. One choice out of
+                all choices made by you and your group members will be <b> randomly selected </b> to be the chosen choice
+                for your group.If your group, <b>by randomly selecting one member's choice</b>, opts for "Option A"
+                in this decision, it will be randomly determined whether the low or high payoff will constitute your
+                group’s payoff; if your group, <b>by randomly selecting one member's choice</b>, opts for "Option B",
+                the respective sure amount will constitute your group’s payoff. The group payoff will then be divided
+                equally among the {{ group_size }} members which will also be the individual payoff for each member.
             {% endblocktrans %}
         </p>
         <p>
@@ -72,10 +73,11 @@
                 between "Option A" and "Option B" while bearing in mind that there is a {{ weight }} chance that your
                 decision will determine everyone's payoff in your group. You may choose A for some decision rows and B
                 for other rows. When your group is finished, one screen will be randomly chosen and one of the {{ n }}
-                decisions on that screen will be randomly picked for your group's payoff. If your group decided for
-                "Option A", a random number will be drawn to determine your earnings; if your group decided for "Option B"
-                you'll receive the respective sure amount. <u>All members in the same group will receive exactly the
-                same amount which is the group payoff divided by {{ group_size }}.</u>
+                made  by all group members decisions on that screen will be randomly picked for your group's payoff.
+                If your group decided for "Option A", a random number will be drawn to determine your earnings;
+                if your group decided for "Option B" you'll receive the respective sure amount.
+                <u>All members in the same group will receive exactly the same amount which is the group payoff
+                    divided by {{ group_size }}.</u>
             {% endblocktrans %}
         </p>
     </div>

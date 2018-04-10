@@ -43,7 +43,7 @@
             {% blocktrans trimmed with n=Constants.num_choices %}
                 After you have recorded all of your choices for all lists, one list will be randomly chosen to calculate
                 payment. You payment will be determined by a randomly chosen decision out of the {{ n }} decisions in
-                that that. If you chose to opt for "Option A" in this decision, it will be randomly determined (according
+                that list. If you chose to opt for "Option A" in this decision, it will be randomly determined (according
                 to the specified probability) whether the low or high payoff will be your payoff; if you chose
                 to opt for "Option B", the respective sure amount will be your payoff.
             {% endblocktrans %}
@@ -61,7 +61,6 @@
                 your payoff.
             {% endblocktrans %}
         </p>
-        <br/>
         <p>
             {% blocktrans trimmed with n=num_choices %}
                 To summarize: You will make {{ n }} choices for each list; for each decision you will have to choose between
