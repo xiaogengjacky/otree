@@ -95,11 +95,12 @@ ROOMS = [
     {
         'name': 'ComLab6.txt',
         'display_name': 'Com Lab 6',
-        'participant_label_file': '_rooms/econ101.txt',
+        'participant_label_file': '_rooms/ComLab6.txt',
     },
     {
         'name': 'CATILab',
         'display_name': 'CATI Lab',
+        'participant_label_file': '_rooms/ComLab6.txt',
     },
     {   'name': 'DemoRoom',
         'display_name': 'Room for live demo',
