@@ -93,7 +93,7 @@ DEMO_PAGE_INTRO_TEXT = """
 
 ROOMS = [
     {
-        'name': 'comlab6.txt',
+        'name': 'ComLab6',
         'display_name': 'Com Lab 6',
         'participant_label_file': '_rooms/comlab6.txt',
     },
