@@ -46,6 +46,21 @@ class Investment(Page):
 #     def after_all_players_arrive(self):
 #         pass
 
+class Cemresults(Page):
+
+    def is_displayed(self):
+
+        return self.subsession.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        return {
+            'list_to_pay': self.participant.vars['cem_random_list'],
+            'choice_to_pay': self.participant.vars['cem_choice'],
+            'option_to_pay': self.participant.vars['cem_option_to_pay'],
+            'payoff': self.participant.vars['cem_payoff'],
+        }
+
 
 class Results(Page):
 
@@ -71,7 +86,10 @@ class Results(Page):
         else:
             outcome = "unsuccessful"
 
-        self.participant.payoff = self.participant.vars['payoff'][rand_num - 1]
+        if Constants.combined:
+            self.participant.payoff = self.participant.vars['payoff'][rand_num - 1] + self.participant.vars['cem_payoff']
+        else:
+            self.participant.payoff = self.participant.vars['payoff'][rand_num - 1]
 
         return {
             'round_to_pay': rand_num,
@@ -83,10 +101,15 @@ class Results(Page):
             'payoff': self.participant.vars['payoff'][rand_num - 1],
         }
 
-
+# ******************************************************************************************************************** #
+# *** PAGE SEQUENCE *** #
+# ******************************************************************************************************************** #
 
 page_sequence = [
     Instruction,
     Investment,
     Results
 ]
+
+if Constants.combined:
+    page_sequence.insert(2, Cemresults)

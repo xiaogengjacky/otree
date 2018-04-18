@@ -102,10 +102,10 @@ class Decision(Page):
             choice_to_pay = self.participant.vars['cem_choices_part1'][rand_num - 1][row_to_pay - 1]
 
             # pass to the next app
-            self.participant.vars['cem_random_list_part1p'] = rand_num
-            self.participant.vars['cem_choice_part1p'] = [choice_to_pay]
-            self.participant.vars['option_to_pay_part1p'] = self.participant.vars['option_to_pay'][rand_num - 1]
-            self.participant.vars['cem_payoff_part1p'] = self.participant.vars['cem_payoff_part1'][rand_num - 1]
+            self.participant.vars['cem_random_list'] = rand_num
+            self.participant.vars['cem_choice'] = [choice_to_pay]
+            self.participant.vars['cem_option_to_pay'] = self.participant.vars['option_to_pay'][rand_num - 1]
+            self.participant.vars['cem_payoff'] = self.participant.vars['cem_payoff_part1'][rand_num - 1]
             # pass to the webpage
             self.participant.payoff = self.participant.vars['cem_payoff_part1'][rand_num - 1]
 
@@ -137,10 +137,10 @@ class Results(Page):
         choice_to_pay = self.participant.vars['cem_choices_part1'][rand_num-1][row_to_pay - 1]
 
         # pass to the next app
-        self.participant.vars['cem_random_list_part1p'] = rand_num
-        self.participant.vars['cem_choice_part1p'] = [choice_to_pay]
-        self.participant.vars['option_to_pay_part1p'] = self.participant.vars['option_to_pay'][rand_num - 1]
-        self.participant.vars['cem_payoff_part1p'] = self.participant.vars['cem_payoff_part1'][rand_num - 1]
+        self.participant.vars['cem_random_list'] = rand_num
+        self.participant.vars['cem_choice'] = [choice_to_pay]
+        self.participant.vars['cem_option_to_pay'] = self.participant.vars['option_to_pay'][rand_num - 1]
+        self.participant.vars['cem_payoff'] = self.participant.vars['cem_payoff_part1'][rand_num - 1]
         # pass to the webpage
         self.participant.payoff = self.participant.vars['cem_payoff_part1'][rand_num - 1]
         return {

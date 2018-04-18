@@ -58,7 +58,29 @@ class ResultsWaitPage(WaitPage):
         self.group.set_group_payoffs()
 
 # --------------------------------------------------------------------------------------------------------------------
+class Cemresults(Page):
 
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        return {
+            'list_to_pay': self.participant.vars['cem_random_list'],
+            'choice_to_pay': self.participant.vars['cem_choice'],
+            'option_to_pay': self.participant.vars['cem_option_to_pay'],
+            'id_self': self.participant.vars['cem_id_self'],
+            'id_other1': self.participant.vars['cem_id_other1'],
+            'id_other2': self.participant.vars['cem_id_other2'],
+            'option_to_pay_p': self.participant.vars['cem_self_option_to_pay'],
+            'option_to_pay_p1': self.participant.vars['cem_other1_option_to_pay'],
+            'option_to_pay_p2': self.participant.vars['cem_other2_option_to_pay'],
+            # 'payoff':         self.player.payoff
+            'group_payoff': self.participant.vars['cem_group_payoff'],
+            'payoff_part2': self.participant.vars['cem_payoff'],
+            'payoff': self.participant.payoff,
+        }
+#     ----------------------------------------------------------------------------------------------------------------
 
 class Results(Page):
 
@@ -104,17 +126,22 @@ class Results(Page):
             'chosen_probability': round(probability, 2),
             'chosen_return': round(return_rate, 2),
             'chosen_member': selection,
-            'group_payoff': c(round(self.participant.vars['payoff']*3, 0)),
+            'group_payoff': c(round(self.participant.vars['payoff']*3, 2)),
             'outcome': outcome,
             'payoff': self.participant.vars['payoff']
         }
 
 
-page_sequence = [Investment,
-                 ResultsWaitPage]
+page_sequence = [Instruction,
+                 Investment,
+                 ResultsWaitPage,
+                 Results]
 
-if Constants.instruction:
-    page_sequence.insert(0, Instruction)
+# if Constants.instruction:
+#     page_sequence.insert(0, Instruction)
 
-if Constants.results:
-    page_sequence.append(Results)
+if Constants.combined:
+    page_sequence.insert(3, Cemresults)
+
+# if Constants.results:
+#     page_sequence.append(Results)

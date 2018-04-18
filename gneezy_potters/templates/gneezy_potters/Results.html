@@ -2,13 +2,14 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Result
+    Results of Experiment 2
 {% endblock %}
 
 {% block content %}
-<p> Round {{ round_to_pay }} has been chosen for payment. The probability of making a profit from the investment was
-    {{ chosen_probability }} and the return rate was {{ chosen_return }}. You had {{ chosen_endowment }} in the round and you invested
-    {{ chosen_investment }}. Your investment was <u>{{ outcome }}</u>. Hence, your payoff from the round is {{ payoff }}.
+    <p> Round <b>{{ round_to_pay }}</b> has been chosen for payment. The probability of success from the investment was
+        <b>{{ chosen_probability }}</b> and the return rate was <b>{{ chosen_return }}</b>. You had <b>{{ chosen_endowment }}</b>
+        in the round and you invested <b>{{ chosen_investment }}</b>. Your investment was <u>{{ outcome }}</u>.
+        Hence, your payoff from the round is <b>{{ payoff }}</b>.
 
 
 </p>

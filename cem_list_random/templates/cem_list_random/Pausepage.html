@@ -2,18 +2,14 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Survey
+    Continue
 {% endblock %}
 
 {% block content %}
 
     <p>
-        Please answer the following questions about yourself.
+        Your group has finished the first experiment. Please click "Next" to advance. The outcome will be shown at the end.
     </p>
-
-    {% for field in form %}
-        {% formfield field %}
-    {% endfor %}
 
     {% next_button %}
 

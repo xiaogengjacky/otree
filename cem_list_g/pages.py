@@ -99,23 +99,60 @@ class Decision(Page):
         # set switching row
         self.player.set_switching_row(round_number)
 
-
 # ******************************************************************************************************************** #
 # *** PAGE WAIT *** #
 # ******************************************************************************************************************** #
 
 
 class ResultsWaitPage(WaitPage):
+
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
     def after_all_players_arrive(self):
         self.group.set_group_payoffs()
 
+
+class Pausepage(Page):
+
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        rand_num = self.player.group.random_list
+        id_self = self.player.id_in_group
+        id_other1 = self.player.get_others_in_group()[0].id_in_group
+        id_other2 = self.player.get_others_in_group()[1].id_in_group
+
+        # payoff information
+
+        row_to_pay = self.player.group.choice_to_pay
+        choice_to_pay = self.participant.vars['cem_choices'][rand_num - 1][row_to_pay - 1]
+        option_to_pay_p = self.participant.vars['cem_choices_made'][rand_num - 1][row_to_pay - 1]
+        option_to_pay_p1 = self.player.get_others_in_group()[0].participant.vars['cem_choices_made'][rand_num - 1][
+            row_to_pay - 1]
+        option_to_pay_p2 = self.player.get_others_in_group()[1].participant.vars['cem_choices_made'][rand_num - 1][
+            row_to_pay - 1]
+
+        # for next app
+        self.participant.vars['cem_random_list'] = rand_num
+        self.participant.vars['cem_choice'] = [choice_to_pay]
+        self.participant.vars['cem_option_to_pay'] = self.player.group.option_to_pay
+        self.participant.vars['cem_id_self'] = id_self
+        self.participant.vars['cem_id_other1'] = id_other1
+        self.participant.vars['cem_id_other2'] = id_other2
+        self.participant.vars['cem_self_option_to_pay'] = option_to_pay_p
+        self.participant.vars['cem_other1_option_to_pay'] = option_to_pay_p1
+        self.participant.vars['cem_other2_option_to_pay'] = option_to_pay_p2
+        self.participant.vars['cem_group_payoff'] = c(
+            round((self.participant.vars['cem_payoff'] - Constants.endowment) * 3, 0))
+
+        return {'list_to_play': rand_num}
+
 # ******************************************************************************************************************** #
 # *** PAGE RESULTS *** #
 # ******************************************************************************************************************** #
-
 
 class Results(Page):
 
@@ -123,6 +160,7 @@ class Results(Page):
     # ----------------------------------------------------------------------------------------------------------------
     def is_displayed(self):
         # display results after the final round
+
         return self.subsession.round_number == Constants.num_rounds
 
     # variables for template
@@ -145,6 +183,9 @@ class Results(Page):
             row_to_pay - 1]
         option_to_pay_p2 = self.player.get_others_in_group()[1].participant.vars['cem_choices_made'][rand_num - 1][
             row_to_pay - 1]
+
+
+
         if Constants.combined_use:
             self.participant.payoff = self.participant.vars['cem_payoff_part1p'] + self.participant.vars['cem_payoff']
             return {
@@ -190,6 +231,9 @@ page_sequence = [Decision,
 
 if Constants.instructions:
     page_sequence.insert(0, Instructions)
+
+if not Constants.results:
+    page_sequence.append(Pausepage)
 
 if Constants.results:
     page_sequence.append(Results)

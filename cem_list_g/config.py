@@ -42,20 +42,20 @@ class Constants(BaseConstants):
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_hi> + <i-1> * <step_size>
     # if <variation = 'lottery_lo'>, <lottery_lo> constitutes the low lottery payoff for the first choice
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_lo> - <i-1> * <step_size>
-    lottery_hi = (300.00, 300.00, 300.00, -300.00, -300.00, -300.00)
-    lottery_lo = (0.00, 0.00, 0.00, 0.00, 0.00, 0.00)
+    lottery_hi = (300.00, 300.00, 300.00, 300.00, 300.00, -300.00, -300.00, -300.00, -300.00, -300.00)
+    lottery_lo = (0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00)
 
     # probability of lottery outcome "high" in %
     # the probability of lottery payoffs is constant if <variation = 'sure_payoff'> or <variation = 'lottery_*'>
     # if <variation = 'probability'>, <probability> determines the likelihood of the high payoff in the first choice
     # for subsequent choices <i>, the probability is determined by <probability> + <i-1> * <step_size>
-    probability = (5, 50, 95, 5, 50, 95)
+    probability = (5, 25, 50, 75, 95, 5, 25, 50, 75, 95)
 
     # sure payoff ("option B")
     # the sure payoff remains constant if <variation = 'probability'> or <variation = 'lottery_*'>
     # if <variation = 'sure_payoff'>, <sure_payoff> constitutes the certain payment ("option B") in the first choice
     # for subsequent choices <i>, the certain payment is determined by <sure_payoff> + <i-1> * <step_size>
-    sure_payoff = (0, 75, 210, -30, -225, -300)
+    sure_payoff = (0, 30, 75, 180, 210,  -30, -120, -225, -270, -300)
 
     # step size (in units of the parameter defined in <variation>)
     # the variable <variation> defines which of the four parameters is varied across the <num_choices> choices
@@ -63,7 +63,7 @@ class Constants(BaseConstants):
     # thus, the varying parameter for choice i = 1, 2, ..., n, <var_i>, is defined by <var> + <i-1> * <step_size>
     # if <variation> is set to 'sure_payoff', 'lottery_hi', or 'lottery_lo', <step_size> is in currency units
     # if <variation> is set to 'probability', <step_size> is in percentage units (i.e. <step_size>%)
-    step_size = (3, 15, 9, 3, 15, 9)
+    step_size = (3, 9, 15, 9, 9, 3, 9, 15, 9, 9)
 
     # initial endowment (in currency units set in settings.py)
     # <endowment> defines an additional endowment for the task to capture potential losses if <variation = lottery_lo>
@@ -114,7 +114,7 @@ class Constants(BaseConstants):
     # show results page summarizing the task's outcome including payoff information
     # if <results = True>, a separate page containing all relevant information is displayed after finishing the task
     # if <results = False>, the template "Decision.html" will not be rendered
-    results = True
+    results = False
 
     # ---------------------------------------------------------------------------------------------------------------- #
     # --- oTree Settings (Don't Modify) --- #
@@ -122,4 +122,4 @@ class Constants(BaseConstants):
 
     name_in_url = 'cem_list_g'
     players_per_group = 3
-    num_rounds = 6
+    num_rounds = 10

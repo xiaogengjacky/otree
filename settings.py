@@ -304,32 +304,32 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['trust_simple'],
     # },
-    {
-        'name': 'mpl',
-        'display_name': "MPL (Individual)",
-        'num_demo_participants': 1,
-        'app_sequence': ['mpl', 'survey', 'payment_info'],
-     },
+    # {
+    #     'name': 'mpl',
+    #     'display_name': "MPL (Individual)",
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['mpl', 'survey', 'payment_info'],
+    #  },
     {
         'name': 'cem_list',
-        'display_name': "Certainty Equivalent (Individual Choice)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['cem_list', 'survey', 'payment_info'],
+        'display_name': "Certainty Equivalent and GP (Individual Choice)",
+        'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.1,
+        'app_sequence': ['cem_list', 'gneezy_potters', 'survey', 'payment_info'],
      },
     {
         'name': 'cem_list_g',
-        'display_name': "Certainty Equivalent (Group Voting)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['cem_list_g', 'survey', 'payment_info'],
+        'display_name': "Certainty Equivalent and GP (Group Voting)",
+        'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.1,
+        'app_sequence': ['cem_list_g', 'gneezy_potters_group', 'survey', 'payment_info'],
     },
 {
         'name': 'cem_list_random',
-        'display_name': "Certainty Equivalent (Group Random Selection)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['cem_list_random'],
+        'display_name': "Certainty Equivalent and GP (Group Random Selection)",
+        'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.1,
+        'app_sequence': ['cem_list_random', 'gneezy_potters_random', 'survey', 'payment_info']
     },
     # {
     #     'name': 'group_risk',
@@ -337,27 +337,27 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 3,
     #     'app_sequence': ['cem_list', 'cem_list_g', 'survey', 'payment_info'],
     # },
-    {
-        'name': 'gneezy_potters',
-        'display_name': "Investment Game (GP)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
-    },
-    {
-        'name': 'gneezy_potters_group',
-        'display_name': "Investment Game (GP Group)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
-    },
-{
-        'name': 'gneezy_potters_random',
-        'display_name': "Investment Game (GP Group Random)",
-        'num_demo_participants': 9,
-        'real_world_currency_per_point': 0.02,
-        'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
-    }
+    # {
+    #     'name': 'gneezy_potters',
+    #     'display_name': "Investment Game (GP)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.02,
+    #     'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
+    # },
+    # {
+    #     'name': 'gneezy_potters_group',
+    #     'display_name': "Investment Game (GP Group)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.02,
+    #     'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
+    # },
+    # {
+    #     'name': 'gneezy_potters_random',
+    #     'display_name': "Investment Game (GP Group Random)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.02,
+    #     'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
+    # }
 
 ]
 

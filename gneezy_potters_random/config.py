@@ -12,12 +12,14 @@ from otree.constants import BaseConstants
 class Constants(BaseConstants):
     name_in_url = 'gneezy_potters_random'
     players_per_group = 3
-    endowment = (100, 100, 100, 100, 100)
-    probability = (1/20, 1/3, 1/2, 2/3, 19/20)
-    multiplier = (40, 6, 4, 3, 40/19)
+    endowment = (300, 300, 300, 300, 300)
+    # probability of success
+    probability = (1 / 20, 1 / 4, 1 / 2, 3 / 4, 19 / 20)
+    multiplier = (30, 6, 3, 2, 30 / 19)
     weight = (1/3, 1/3, 1/3)
     cum_weight = (0, 1/3, 2/3, 1)
+    # the number of total rounds
     num_rounds = len(probability)
-    instruction = True
-    results = True
+    # whether GP game is used after the CE task
+    combined = True
 
