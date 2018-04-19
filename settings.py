@@ -314,21 +314,21 @@ SESSION_CONFIGS = [
         'name': 'cem_list',
         'display_name': "Certainty Equivalent and GP (Individual Choice)",
         'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.1,
+        'real_world_currency_per_point': 0.05,
         'app_sequence': ['cem_list', 'gneezy_potters', 'survey', 'payment_info'],
      },
     {
         'name': 'cem_list_g',
         'display_name': "Certainty Equivalent and GP (Group Voting)",
         'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.1,
+        'real_world_currency_per_point': 0.05,
         'app_sequence': ['cem_list_g', 'gneezy_potters_group', 'survey', 'payment_info'],
     },
 {
         'name': 'cem_list_random',
         'display_name': "Certainty Equivalent and GP (Group Random Selection)",
         'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.1,
+        'real_world_currency_per_point': 0.05,
         'app_sequence': ['cem_list_random', 'gneezy_potters_random', 'survey', 'payment_info']
     },
     # {

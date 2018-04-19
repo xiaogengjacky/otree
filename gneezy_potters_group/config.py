@@ -19,6 +19,8 @@ class Constants(BaseConstants):
     multiplier = (30, 6, 3, 2, 30 / 19)
     # the number of total rounds
     num_rounds = len(probability)
+    # num_rounds = 1
     # whether GP game is used after the CE task
     combined = True
-
+    # CEM part individual endowment
+    cem_endowment = 100

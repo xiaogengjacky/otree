@@ -64,6 +64,8 @@ class Cemresults(Page):
         return self.subsession.round_number == Constants.num_rounds
 
     def vars_for_template(self):
+        cem_endowment = c(Constants.cem_endowment)
+        self.participant.vars['g_indicator'] = True
 
         return {
             'list_to_pay': self.participant.vars['cem_random_list'],
@@ -79,6 +81,7 @@ class Cemresults(Page):
             'group_payoff': self.participant.vars['cem_group_payoff'],
             'payoff_part2': self.participant.vars['cem_payoff'],
             'payoff': self.participant.payoff,
+            'cem_endowment': cem_endowment
         }
 #     ----------------------------------------------------------------------------------------------------------------
 

@@ -11,7 +11,9 @@ class Constants(BaseConstants):
     num_rounds = 1
 
 
+
 class Subsession(BaseSubsession):
+
     pass
 
 
@@ -71,13 +73,13 @@ class Player(BasePlayer):
 
     sa_1 = models.StringField(
         choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree'],
-        verbose_name='In general, I think that a group\'s interest is more important than individual members\'.',
+        verbose_name='In general, I think that a group\'s interest is more important than its individual members\'.',
         widget=widgets.RadioSelect
     )
 
     sa_2 = models.StringField(
         choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree'],
-        verbose_name='I think I am more risk averse than a typical person.',
+        verbose_name='I think I am more risk averse than an average person.',
         widget=widgets.RadioSelect
     )
 
@@ -94,8 +96,30 @@ class Player(BasePlayer):
     )
 
     sa_5 = models.StringField(
-        choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree'],
+        choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree',
+                 'does not apply'],
         verbose_name='I tend to be more risk averse when making decisions for my group.',
+        widget=widgets.RadioSelect
+    )
+
+    sa_6 = models.StringField(
+        choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree',
+                 'does not apply'],
+        verbose_name='I would take more risk if I were deciding for myself rather than for my group.',
+        widget=widgets.RadioSelect
+    )
+
+    sa_7 = models.StringField(
+        choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree',
+                 'does not apply'],
+        verbose_name='I believed that my group members chose more risky options than me in experiment 1.',
+        widget=widgets.RadioSelect
+    )
+
+    sa_8 = models.StringField(
+        choices=['strongly disagree', 'somewhat disagree', 'neutral', 'somewhat agree', 'strongly agree',
+                 'does not apply'],
+        verbose_name='I believed that more than half of the participants in this experiment chose more risky options than me in experiment 1.',
         widget=widgets.RadioSelect
     )
 

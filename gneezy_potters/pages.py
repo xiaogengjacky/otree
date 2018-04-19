@@ -53,6 +53,7 @@ class Cemresults(Page):
         return self.subsession.round_number == Constants.num_rounds
 
     def vars_for_template(self):
+        self.participant.vars['g_indicator'] = False
 
         return {
             'list_to_pay': self.participant.vars['cem_random_list'],

@@ -22,4 +22,6 @@ class Constants(BaseConstants):
     num_rounds = len(probability)
     # whether GP game is used after the CE task
     combined = True
+    # CEM part individual endowment
+    cem_endowment = 100
 

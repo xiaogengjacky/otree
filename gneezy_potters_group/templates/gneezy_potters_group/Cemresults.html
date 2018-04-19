@@ -255,8 +255,6 @@
                 {% endblocktrans %}
             </p>
 
-
-
             {% if option_to_pay == "A" %}
                 <p>
                     {% blocktrans trimmed %}
@@ -270,7 +268,7 @@
                 {% blocktrans trimmed with payoff_part2=payoff_part2 %}
                     Your group received a payoff of <b>{{ group_payoff }}</b>. Hence, your, as well as the other two group
                     members', payoff in this task is <b>{{ payoff_part2 }}</b> which includes your starting balance of
-                    {{ endowment }}.
+                    <b>{{ cem_endowment }}</b>.
                 {% endblocktrans %}
             </p>
         </div>
