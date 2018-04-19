@@ -43,7 +43,7 @@ class Constants(BaseConstants):
     # if <variation = 'lottery_lo'>, <lottery_lo> constitutes the low lottery payoff for the first choice
     # for subsequent choices <i>, the high lottery outcome is determined by <lottery_lo> - <i-1> * <step_size>
     lottery_hi = (300.00, 300.00, 300.00, 300.00, 300.00, -300.00, -300.00, -300.00, -300.00, -300.00)
-    lottery_lo = (0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00)
+    lottery_lo = (0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00)
 
     # probability of lottery outcome "high" in %
     # the probability of lottery payoffs is constant if <variation = 'sure_payoff'> or <variation = 'lottery_*'>
