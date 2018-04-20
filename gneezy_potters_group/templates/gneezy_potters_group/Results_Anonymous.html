@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results of Experiment 2
+{% endblock %}
+
+{% block content %}
+    <p> Round <b>{{ round_to_pay }}</b> has been chosen for payment. The probability of success was
+        <b>{{ chosen_probability }}</b> and the return rate was <b>{{ chosen_return }}</b>. Your group had <b>{{ chosen_endowment }}</b> in the
+        round and you proposed to invest <b>{{ investment_p }}</b>. The median proposal value
+        of <b>{{ group_investment }}</b> was implemented and the investment was <u>{{ outcome }}</u>. Hence, the group payoff is
+        <b>{{ group_payoff }}</b> and each member's payoff is <b>{{ payoff }}</b>.
+
+
+</p>
+    {% next_button %}
+{% endblock %}
+
+

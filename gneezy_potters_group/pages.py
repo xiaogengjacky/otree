@@ -55,8 +55,34 @@ class ResultsWaitPage(WaitPage):
 
 # --------------------------------------------------------------------------------------------------------------------
 
-
 class Cemresults(Page):
+
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+        cem_endowment = c(Constants.cem_endowment)
+        self.participant.vars['g_indicator'] = True
+
+        return {
+            'list_to_pay': self.participant.vars['cem_random_list'],
+            'choice_to_pay': self.participant.vars['cem_choice'],
+            'option_to_pay': self.participant.vars['cem_option_to_pay'],
+            'id_self': self.participant.vars['cem_id_self'],
+            'id_other1': self.participant.vars['cem_id_other1'],
+            'id_other2': self.participant.vars['cem_id_other2'],
+            'option_to_pay_p': self.participant.vars['cem_self_option_to_pay'],
+            'option_to_pay_p1': self.participant.vars['cem_other1_option_to_pay'],
+            'option_to_pay_p2': self.participant.vars['cem_other2_option_to_pay'],
+            # 'payoff':         self.player.payoff
+            'group_payoff': self.participant.vars['cem_group_payoff'],
+            'payoff_part2': self.participant.vars['cem_payoff'],
+            'payoff': self.participant.payoff,
+            'cem_endowment': cem_endowment
+        }
+# --------------------------------------------------------------------------------------------------------------------
+
+class Cemresults_Anonymous(Page):
 
     def is_displayed(self):
         return self.subsession.round_number == Constants.num_rounds
@@ -136,17 +162,76 @@ class Results(Page):
             'payoff': self.participant.vars['payoff']
         }
 
+# --------------------------------------------------------------------------------------------------------------------
+
+class Results_Anonymous(Page):
+
+    # skip results until last page
+    # ----------------------------------------------------------------------------------------------------------------
+    def is_displayed(self):
+        # if Constants.one_choice_per_page:
+        return self.subsession.round_number == Constants.num_rounds
+        # return True
+
+    def vars_for_template(self):
+
+        rand_num = self.player.group.random_round
+        id_self = self.player.id_in_group
+        id_other1 = self.player.get_others_in_group()[0].id_in_group
+        id_other2 = self.player.get_others_in_group()[1].id_in_group
+        investment_p = self.player.participant.vars['investment'][rand_num - 1]
+        investment_p1 = self.player.get_others_in_group()[0].participant.vars['investment'][rand_num - 1]
+        investment_p2 = self.player.get_others_in_group()[1].participant.vars['investment'][rand_num - 1]
+        # unzip <cem_choices> into list of lists
+        choices = self.participant.vars['environment'][rand_num - 1]
+        endowment = choices[1]
+        probability = choices[2]
+        return_rate = choices[3] - 1
+
+        if self.player.group.winner == 1:
+            outcome = "successful"
+        else:
+            outcome = "unsuccessful"
+
+        if Constants.combined:
+            self.participant.payoff = self.participant.vars['payoff'] + self.participant.vars['cem_payoff']
+        else:
+            self.participant.payoff = self.participant.vars['payoff']
+
+        return {
+            'round_to_pay': rand_num,
+            'id_self': id_self,
+            'id_other1': id_other1,
+            'id_other2': id_other2,
+            'investment_p': investment_p,
+            'investment_p1': investment_p1,
+            'investment_p2': investment_p2,
+            'group_investment': self.player.group.investment,
+            'chosen_endowment': c(endowment),
+            'chosen_probability': round(probability, 2),
+            'chosen_return': round(return_rate, 2),
+            'group_payoff': c(round(self.participant.vars['payoff']*3, 0)),
+            'outcome': outcome,
+            'payoff': self.participant.vars['payoff']
+        }
 
 page_sequence = [Instruction,
                  Investment,
-                 ResultsWaitPage,
-                 Results]
+                 ResultsWaitPage]
 
 # if Constants.instruction:
 #     page_sequence.insert(0, Instruction)
 
 if Constants.combined:
-    page_sequence.insert(3, Cemresults)
+    if Constants.anonymity:
+        page_sequence.append(Cemresults_Anonymous)
+    else:
+        page_sequence.append(Cemresults)
+
+if Constants.anonymity:
+    page_sequence.append(Results_Anonymous)
+else:
+    page_sequence.append(Results)
 
 # if Constants.results:
 #     page_sequence.append(Results)

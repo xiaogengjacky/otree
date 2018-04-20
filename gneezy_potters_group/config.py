@@ -24,3 +24,5 @@ class Constants(BaseConstants):
     combined = True
     # CEM part individual endowment
     cem_endowment = 100
+    # Toggle for anonymity
+    anonymity = True
