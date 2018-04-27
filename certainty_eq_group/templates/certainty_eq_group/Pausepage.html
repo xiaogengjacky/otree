@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Continue
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Your group has finished the first experiment and will be able check the result when you finish both experiments.
+        Please click "Next" to continue.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

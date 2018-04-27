@@ -17,8 +17,10 @@ Gneezy Potters method to elicit risk preference as in their 1995 QJE paper.
 
 
 class Subsession(BaseSubsession):
+    random_round = models.IntegerField()
 
     def creating_session(self):
+        self.random_round = randrange(1, Constants.num_rounds + 1)
         if self.round_number == 1:
             for p in self.get_players():
 
@@ -34,27 +36,26 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     random_draw = models.FloatField()
-    random_round = models.IntegerField()
+
     winner = models.IntegerField()
     investment = models.FloatField()
     selection = models.IntegerField()
 
-    def set_group_payoffs(self):
-        self.random_round = randrange(1, Constants.num_rounds + 1)
+    def set_group_payoffs(self, round_num):
 
         self.random_draw = random()
-        if self.random_draw < self.get_player_by_id(1).participant.vars['environment'][self.random_round - 1][2]:
+        if self.random_draw < self.get_player_by_id(1).participant.vars['environment'][round_num - 1][2]:
             self.winner = 1
         else:
             self.winner = 0
 
-        endowment = Constants.endowment[self.random_round - 1]
-        multiplier = Constants.multiplier[self.random_round - 1]
+        endowment = Constants.endowment[round_num - 1]
+        multiplier = Constants.multiplier[round_num - 1]
 
         dd = random()
         for k in range(0, Constants.players_per_group):
             if Constants.cum_weight[k] < dd < Constants.cum_weight[k + 1]:
-                self.investment = self.get_player_by_id(k+1).participant.vars['investment'][self.random_round - 1]
+                self.investment = self.get_player_by_id(k+1).participant.vars['investment'][round_num - 1]
                 self.selection = k + 1
 
         for p in self.get_players():
@@ -65,7 +66,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     investment = models.CurrencyField(
-        min=0, max=Constants.endowment[0],
+        min=0,
         doc="""The amount invested by the subject""",
     )
 

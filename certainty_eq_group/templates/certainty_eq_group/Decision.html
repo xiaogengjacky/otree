@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    Each member has {{ endowment }} in this round. You group is choosing between a lottery and a randomly generated amount
+        between {{ low }} and {{ high }}.
+    </p>
+    <p>The lottery has {{ probability }} chance to pay {{ high }} and {{ probability_r }} chance to pay {{ low }}.</p>
+
+    <p>Please specify the lowest sure amount that you propose your group to accept in exchange for the lottery.</p>
+
+    {% formfield player.ce label="What is the minimum sure amount that your group should accept?" %}
+
+    {% next_button %}
+
+{#    {% include Constants.instructions_template %}#}
+
+{% endblock %}

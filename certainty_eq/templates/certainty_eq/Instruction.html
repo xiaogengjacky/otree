@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Instructions of Experiment 1
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this experiment, you will make a series of decisions. In each round of the experiment, you will receive an amount
+        of points as your budget. Your will decide between a lottery and a sure payoff. If you decide to take the lottery,
+        it will be played out at the end of the experiment. If you decide to receive a sure payoff, you will receive that sure payoff.
+    </p>
+    <p>
+    <u>Determine the minimum sure payoff you accept</u>: after you see the lottery in each round, you will be asked to specify
+        a minimum amount that you would accept in exchange of the lottery. Note that lotteries could pay either positive or
+    negative amounts. In the case where a lottery pays a negative amount, you also need to specify a negative amount. That is,
+    what is the minimum sure loss that you would accept in exchange of a possible loss provided by the lottery.
+    </p>
+    <p>
+        <u>Determine between the lottery and the sure payoff</u>: after you decide the minimum amount you would accept
+        in exchange of the lottery, the computer will generate a random amount that is larger than the lowest payoff of the lottery
+        but smaller than the highest payoff of the lottery. If this random amount is greater than or equal to your specified amount,
+        you will receive this random amount as your payoff. If this random amount is smaller than your decided amount,
+        you will keep the lottery.
+    </p>
+    <p>
+        If the you end up keeping the lottery, the computer will determine the outcome of the lottery using a random draw.
+    </p>
+    <p>
+    At the end of the experiment, one round will be randomly picked and your payoff from the picked round will be your final payoff
+    from this experiment. Since each round has a equal chance of being picked, it is in your best interest to treat every round
+    as if it has been picked.
+    </p>
+{#    <p>#}
+{#        <b>Please note that the amount you propose and your identity will be revealed and shared with your group members.</b>#}
+{#    </p>#}
+
+    {% next_button %}
+
+{% endblock %}

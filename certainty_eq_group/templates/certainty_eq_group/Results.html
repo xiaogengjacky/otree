@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block content %}
+    <p> Round <b>{{ round_to_pay }}</b> has been chosen for payment. The lottery in round {{ round_to_pay }} has {{ chosen_probability }}
+        chance to pay {{ high }} and otherwise to pay {{ low }}. The payout of this lottery has been randomly determined to be {{ outcome }}.</p>
+    <p>You, as group member {{ id_self }}, proposed that the minimum amount that your group would accept in exchang of the lottery
+        is {{ ce_p }}; group member {{ id_other1 }} proposed {{ ce_p1 }}; group member {{ id_other2 }} proposed {{ ce_p2 }}. Therefore,
+        your group's decision is <b>{{ group_ce }}</b>.</p>
+
+    <p>A random number between {{ low }} and {{ high }} has been drawn which is {{ rnd_bdm }}. Hence, your group will receive {{ receive }}
+        and is paid {{ group_payoff }}. Each of you will receive this amount divided by {{ group_size }} so the individual payoff is {{ payoff }}.
+        Your final payoff from this experiment, including your budget, is {{ final_payoff }}.</p>
+
+
+</p>
+    {% next_button %}
+{% endblock %}
+
+

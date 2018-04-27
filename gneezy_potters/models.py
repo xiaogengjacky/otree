@@ -16,8 +16,10 @@ Gneezy Potters method to elicit risk preference as in their 1995 QJE paper.
 
 
 class Subsession(BaseSubsession):
+    rand_round = models.IntegerField()
 
     def creating_session(self):
+        self.rand_round = randrange(1, Constants.num_rounds + 1)
         if self.round_number == 1:
             for p in self.get_players():
 

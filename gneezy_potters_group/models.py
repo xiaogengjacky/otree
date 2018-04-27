@@ -1,4 +1,3 @@
-
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
@@ -12,14 +11,18 @@ from statistics import median
 author = 'Your name here'
 
 doc = """
-Gneezy Potters method to elicit risk preference as in their 1995 QJE paper.
+Certainty equivalents with BDM. Majority voting rule for the group.
 """
 
 
 class Subsession(BaseSubsession):
 
+    rand_round = models.IntegerField()
+
     def creating_session(self):
+        self.rand_round = randrange(1, Constants.num_rounds + 1)
         if self.round_number == 1:
+
             for p in self.get_players():
 
                 round_list = (j for j in range(1, Constants.num_rounds+1))
@@ -34,23 +37,20 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     random_draw = models.FloatField()
-    random_round = models.IntegerField()
     winner = models.IntegerField()
     investment = models.FloatField()
 
-    def set_group_payoffs(self):
-        self.random_round = randrange(1, Constants.num_rounds + 1)
-
+    def set_group_payoffs(self, round_num):
         self.random_draw = random()
-        if self.random_draw < self.get_player_by_id(1).participant.vars['environment'][self.random_round - 1][2]:
+        if self.random_draw < self.get_player_by_id(1).participant.vars['environment'][round_num - 1][2]:
             self.winner = 1
         else:
             self.winner = 0
 
-        endowment = Constants.endowment[self.random_round - 1]
-        multiplier = Constants.multiplier[self.random_round - 1]
+        endowment = Constants.endowment[round_num - 1]
+        multiplier = Constants.multiplier[round_num - 1]
 
-        self.investment = median([p.participant.vars['investment'][self.random_round - 1] for p in self.get_players()])
+        self.investment = median([p.participant.vars['investment'][round_num - 1] for p in self.get_players()])
 
         for p in self.get_players():
             p.payoff = (endowment - self.investment + self.winner * self.investment * multiplier)*(1/3)
@@ -66,10 +66,4 @@ class Player(BasePlayer):
 
     def set_participant_investment(self, round_num):
         self.participant.vars['investment'][round_num - 1] = self.investment
-
-
-
-
-
-
 

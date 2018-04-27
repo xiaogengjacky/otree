@@ -45,21 +45,43 @@ class Investment(Page):
 #
 #     def after_all_players_arrive(self):
 #         pass
-
-class Cemresults(Page):
+#     ----------------------------------------------------------------------------------------------------------------
+class Ceresults(Page):
 
     def is_displayed(self):
 
         return self.subsession.round_number == Constants.num_rounds
 
     def vars_for_template(self):
-        self.participant.vars['g_indicator'] = False
+        rand_round = self.participant.vars['ce_rand_round']
+        choices = self.participant.vars['ce_environment'][rand_round - 1]
+
+        endowment = choices[1]
+        high = choices[2]
+        low = choices[3]
+        probability = choices[4]
+
+        if self.participant.vars['ce_outcomes'][rand_round - 1][4] == 1:
+            outcome = c(high)
+        else:
+            outcome = c(low)
+
+        if self.participant.vars['ce_outcomes'][rand_round - 1][2] > self.participant.vars['ce_outcomes'][rand_round - 1][0]:
+            receive = "the sure amount"
+        else:
+            receive = "the lottery payout"
 
         return {
-            'list_to_pay': self.participant.vars['cem_random_list'],
-            'choice_to_pay': self.participant.vars['cem_choice'],
-            'option_to_pay': self.participant.vars['cem_option_to_pay'],
-            'payoff': self.participant.vars['cem_payoff'],
+            'high': c(high),
+            'low': c(low),
+            'chosen_probability': format(probability, ",.0%"),
+            'round_to_pay': rand_round,
+            'ce_p': self.participant.vars['ce_outcomes'][rand_round - 1][0],
+            'payoff': self.participant.vars['ce_outcomes'][rand_round - 1][3],
+            'rnd_bdm': self.participant.vars['ce_outcomes'][rand_round - 1][2],
+            'outcome': outcome,
+            'receive': receive,
+            'final_payoff': self.participant.vars['ce_outcomes'][rand_round - 1][3] + endowment
         }
 
 
@@ -75,7 +97,7 @@ class Results(Page):
     def vars_for_template(self):
 
         # round_num = self.subsession.round_number
-        rand_num = randrange(1, Constants.num_rounds + 1)
+        rand_num = self.subsession.rand_round
         # unzip <cem_choices> into list of lists
         choices = self.participant.vars['environment'][rand_num - 1]
         endowment = choices[1]
@@ -88,7 +110,9 @@ class Results(Page):
             outcome = "unsuccessful"
 
         if Constants.combined:
-            self.participant.payoff = self.participant.vars['payoff'][rand_num - 1] + self.participant.vars['cem_payoff']
+            rand_round = self.participant.vars['ce_rand_round']
+            self.participant.payoff = self.participant.vars['payoff'][rand_num - 1] \
+                                      + self.participant.vars['ce_outcomes'][rand_round - 1][5]
         else:
             self.participant.payoff = self.participant.vars['payoff'][rand_num - 1]
 
@@ -113,4 +137,4 @@ page_sequence = [
 ]
 
 if Constants.combined:
-    page_sequence.insert(2, Cemresults)
+    page_sequence.insert(2, Ceresults)

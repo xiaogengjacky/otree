@@ -7,5 +7,12 @@ from .models import Constants
 class PlayerBot(Bot):
 
     def play_round(self):
-        yield (pages.MyPage)
-        yield (pages.Results)
+        if self.subsession.round_number == 1:
+            yield (pages.Instruction)
+        yield (pages.Investment, {'investment': self.player.id_in_group*10 + 30})
+        if self.subsession.round_number == Constants.num_rounds:
+            if Constants.combined:
+                yield (pages.Ceresults)
+                yield (pages.Results)
+            else:
+                yield (pages.Results)
