@@ -8,39 +8,43 @@
 {% block content %}
 
     <p>
-        In this experiment, you will work with two other group members to make a series of decisions.
-        In each round of the experiment, each group member will receive the same amount of points as your budget. Your group will
-        jointly decide between a lottery and a sure payoff. If your group decide to take the lottery, it will be played out
-    at the end of the experiment. If your group decide to receive a sure payoff, each group member will receive that sure payoff
-    divided by {{ group_size }}.
+        In this experiment, you will work with two other group members to make a series of decisions over several rounds.
+        In each round of the experiment, each group member will receive an amount of points as his (her) budget;
+        the amount of points received is the same across all group members.  All group members will then be shown an identical
+        lottery in every round. The lotteries are different across different rounds.
+        Each member of your group will then have to go through the followings sequence of decisions in each round.
     </p>
     <p>
-    <u>Determine the minimum sure payoff your group would accept</u>: after you see the lottery in each round, you and your teammates will
-    be asked to each specify a minimum amount that you think your group would accept in exchange of the lottery. After all group members indicate
-    their amounts, the computer will discard the highest amount and the lowest amount among the {{ group_size }} amounts.
-    That is, the computer will take the median value among the {{ group_size }} amounts as the group's decision. Note that
-        lotteries could pay either positive or negative amounts. In the case where a lottery pays a negative amount, you also
-        need to specify a negative amount. That is, what is the minimum sure loss that you would accept in exchange of a
-        possible loss provided by the lottery.
+    <u>1. Determine the minimum sure payoff to accept</u>: After you and your group mates see the lottery, you and your
+        group mates will be asked to each specify a minimum sure amount that your group would accept in exchange of the lottery.
+        Note that, the lottery could pay either a positive or a negative amount. In the case where you and your group mates
+        see the lottery paying a negative amount, you and your group mates will have to specify the minimum sure loss that your
+        group would accept in exchange of a possible loss provided by the lottery. After all group members indicate their amounts,
+        the computer will discard the highest amount and the lowest amount among the {{ group_size }} amounts. That is, the computer will
+        take the median value among the {{ group_size }} proposed amounts as the group's decision.
     </p>
     <p>
-        <u>Determine between the lottery and the sure payoff</u>: after the group decides the minimum amount it would accept
-        in exchange of the lottery, the computer will generate a random amount that is larger than the lowest payoff of the lottery
-        but smaller than the highest payoff of the lottery. If this random amount is greater than or equal to the group's decided amount,
-        the group will receive this random amount as its payoff. If this random amount is smaller than the group's decided amount,
-        the group will keep the shown lottery.
+        <u>2. Determining whether your group will receive the lottery or the sure payoff</u>: After your group has
+        decided the minimum amount of sure payoff your group would accept in exchange of the lottery, the computer will
+        generate a random amount that is larger than the lowest payoff of the lottery but smaller than the highest payoff of the lottery.
+        If this random amount is greater than or equal to the group's chosen minimum sure payoff amount (i.e. the median
+        value among the {{ group_size }} proposed amounts) that the group is willing to accept in exchange of the lottery,
+        the group will receive this random amount as the group’s payoff in that particular round.
+        If this random amount is smaller than the group's chosen minimum sure payoff amount (i.e. the median value among the {{ group_size }}
+        proposed amounts) that the group is willing to accept in exchange of the lottery, the group will keep the lottery.
+        The computer will then determine the outcome of the lottery using a random draw according to the chance (probability)
+        specified in that lottery.
+
+
     </p>
     <p>
-        If the group ends up keeping the lottery, the computer will determine the outcome of the lottery using a random draw.
+        IAt the end of the experiment, one round will be randomly picked and your payoff from the picked round will be your final
+        payoff from this experiment. Since each round has an equal chance of being picked, it is in your best interest to treat
+        every round as if it has been picked.
     </p>
-    <p>
-    At the end of the experiment, one round will be randomly picked and your payoff from the picked round will be your final payoff
-    from this experiment. Since each round has a equal chance of being picked, it is in your best interest to treat every round
-    as if it has been picked.
-    </p>
-    <p>
-        <b>Please note that the amount you propose and your identity will be revealed and shared with your group members.</b>
-    </p>
+    <p><b>Please note that the amount you propose and your identity will be revealed and
+        shared with your group members.</b></p>
+
 
     {% next_button %}
 

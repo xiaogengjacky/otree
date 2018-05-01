@@ -8,30 +8,31 @@
 {% block content %}
 
     <p>
-        In this experiment, you will make a series of decisions. In each round of the experiment, you will receive an amount
-        of points as your budget. Your will decide between a lottery and a sure payoff. If you decide to take the lottery,
-        it will be played out at the end of the experiment. If you decide to receive a sure payoff, you will receive that sure payoff.
+        In this experiment, you will make a series of decisions over several rounds. In each round, you will receive an
+        amount of points as your budget, and be shown a lottery. You will then have to go through the followings sequence
+        of decisions in each round.
     </p>
     <p>
-    <u>Determine the minimum sure payoff you accept</u>: after you see the lottery in each round, you will be asked to specify
-        a minimum amount that you would accept in exchange of the lottery. Note that lotteries could pay either positive or
-    negative amounts. In the case where a lottery pays a negative amount, you also need to specify a negative amount. That is,
-    what is the minimum sure loss that you would accept in exchange of a possible loss provided by the lottery.
+    <u>1. Determining the minimum sure payoff to accept</u>: After you see the lottery, you will be asked to specify a
+        minimum amount that you would accept in exchange of the lottery. Note that, the lottery could pay either a positive
+        or a negative amount. In the case where the lottery paying a negative amount, you will have to specify the minimum
+        sure loss that you would accept in exchange of a possible loss provided by the lottery.
     </p>
     <p>
-        <u>Determine between the lottery and the sure payoff</u>: after you decide the minimum amount you would accept
-        in exchange of the lottery, the computer will generate a random amount that is larger than the lowest payoff of the lottery
-        but smaller than the highest payoff of the lottery. If this random amount is greater than or equal to your specified amount,
-        you will receive this random amount as your payoff. If this random amount is smaller than your decided amount,
-        you will keep the lottery.
+        <u>2. Determining whether you will receive the lottery or the sure payoff</u>: After you have decided the minimum
+        amount you would accept in exchange of the lottery, the computer will generate a random amount that is larger than
+        the lowest payoff of the lottery but smaller than the highest payoff of the lottery.
+        If this random amount is greater than or equal to your minimum sure payoff amount that you are willing to accept
+        in exchange of the lottery, you will receive this random amount as your payoff in that particular round.
+        If this random amount is smaller than your minimum sure payoff amount that you are willing to accept in exchange
+        of the lottery, you will keep the lottery. The computer will then determine the outcome of the lottery using a random
+        draw according to the chance (probability) specified in that lottery.
     </p>
+
     <p>
-        If the you end up keeping the lottery, the computer will determine the outcome of the lottery using a random draw.
-    </p>
-    <p>
-    At the end of the experiment, one round will be randomly picked and your payoff from the picked round will be your final payoff
-    from this experiment. Since each round has a equal chance of being picked, it is in your best interest to treat every round
-    as if it has been picked.
+    At the end of the experiment, one round will be randomly picked and your payoff from the picked round will be your
+        final payoff from this experiment. Since each round has an equal chance of being picked, it is in your best interest
+        to treat every round as if it has been picked.
     </p>
 {#    <p>#}
 {#        <b>Please note that the amount you propose and your identity will be revealed and shared with your group members.</b>#}
