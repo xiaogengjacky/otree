@@ -9,11 +9,11 @@
 {% block content %}
 
     <p>
-    You {{ endowment }} in this round. You are choosing between a lottery and a randomly generated amount between {{ low }} and {{ high }}.
+    You have {{ endowment }} in this round.
     </p>
-    <p>The lottery has {{ probability }} chance to pay {{ high }} and {{ probability_r }} chance to pay {{ low }}.</p>
+    <p>The lottery has <b>{{ probability }}</b>> chance to pay <b>{{ high }}</b>> and <b>{{ probability_r }}</b>> chance to pay <b>{{ low }}</b>>.</p>
 
-    <p>Please specify the lowest sure amount that you group accept in exchange for the lottery.</p>
+    <p>Please specify the lowest sure amount that you accept in exchange for the lottery.</p>
 
     {% formfield player.ce label="What is the minimum sure amount that you accept?" %}
 

@@ -12,6 +12,7 @@ def vars_for_all_templates(self):
     return{
         'group_size': Constants.players_per_group,
         'endowment': c(Constants.endowment[round_number - 1]),
+        'group_endowment': c(Constants.endowment[round_number - 1]*Constants.players_per_group),
         'high': c(Constants.lottery_hi[round_number - 1]),
         'low': c(Constants.lottery_lo[round_number - 1]),
         'probability': format(Constants.probability[round_number - 1], ",.0%"),
