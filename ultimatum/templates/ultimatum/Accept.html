@@ -3,27 +3,31 @@
 
 {% block title %}
 
-        Your role and decision
+{#        Your role and decision#}
+    你的角色与决定
 
 {% endblock %}
 
 {% block content %}
 
     <p>
-        You are the <strong>responder</strong>.
+{#        You are the <strong>responder</strong>.#}
+    你的角色是<strong>回应者</strong>。
     </p>
 
     <p>
-        The other player has offered you {{ group.amount_offered }}.
+{#        The other player has offered you {{ group.amount_offered }}.#}
+    建议者分给了你{{ group.amount_offered }}。
     </p>
 
-    <p><b>Do you wish to accept the offer?</b></p>
+    <p><b>你想要接受这一建议么？</b></p>
+{#    <p><b>Do you wish to accept the offer?</b></p>#}
     <div>
         <button name="offer_accepted" value="True" class="btn btn-primary btn-large">
-            Yes
+            接受
         </button>
         <button name="offer_accepted" value="False" class="btn btn-primary btn-large">
-            No
+            拒绝
         </button>
     </div>
 

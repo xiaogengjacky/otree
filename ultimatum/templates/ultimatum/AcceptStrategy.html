@@ -2,23 +2,27 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Your role and decision
+{#    Your role and decision#}
+    你的角色与决定
 {% endblock %}
 
 {% block content %}
 
     <p>
-        You are the <strong>responder</strong>.
+{#        You are the <strong>responder</strong>.#}
+    你的角色是<strong>回应者</strong>。
     </p>
 
     <p>
-        The proposer will make you an offer on how to divide
-        the {{ Constants.endowment }}.
+{#        The proposer will make you an offer on how to divide#}
+{#        the {{ Constants.endowment }}.#}
+    建议者将会向你提出如何分配{{ Constants.endowment }}的建议。
     </p>
 
     <p>
-        Please choose below how you would respond to each of the possible
-        offers.
+{#        Please choose below how you would respond to each of the possible#}
+{#        offers.#}
+    请选择你将如何回应以下可能提出的建议。
     </p>
 
     {% for field in form %}

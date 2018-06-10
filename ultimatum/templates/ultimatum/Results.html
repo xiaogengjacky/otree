@@ -3,7 +3,8 @@
 
 {% block title %}
 
-        Results
+{#        Results#}
+    结果
 
 {% endblock %}
 
@@ -12,28 +13,34 @@
     <p>
         {% if player.id_in_group == 1 %}
 
-                You were given {{ Constants.endowment }}, out of which you offered {{ group.amount_offered }} to the other player.
+{#                You were given {{ Constants.endowment }}, out of which you offered {{ group.amount_offered }} to the other player.#}
+            你收到了{{ Constants.endowment }}，在这些钱中，你分给了回应者{{ group.amount_offered }}。
 
             {% if group.offer_accepted %}
 
-                    Your offer was accepted.
+{#                    Your offer was accepted.#}
+                你的建议被接受了。
 
             {% else %}
 
-                     Your offer was rejected.
+{#                     Your offer was rejected.#}
+                你的建议被拒绝了。
 
             {% endif %}
         {% else %}
 
-                The other player offered you {{ group.amount_offered }} out of the total {{ Constants.endowment }}.
+{#                The other player offered you {{ group.amount_offered }} out of the total {{ Constants.endowment }}.#}
+            在收到的{{ Constants.endowment }}中建议者分给了你{{ group.amount_offered }}。
 
             {% if group.offer_accepted %}
 
-                    You accepted this offer.
+{#                    You accepted this offer.#}
+                你接受这一建议。
 
             {% else %}
 
-                    You rejected this offer.
+{#                    You rejected this offer.#}
+                你拒绝这一建议。
 
             {% endif %}
         {% endif %}
@@ -41,7 +48,8 @@
 
     <p>
 
-            Your payoff is therefore {{ player.payoff }}.
+{#            Your payoff is therefore {{ player.payoff }}.#}
+    你本轮的收益是{{ player.payoff }}。
 
     </p>
 

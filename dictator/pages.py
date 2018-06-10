@@ -21,9 +21,11 @@ class ResultsWaitPage(WaitPage):
 
     def vars_for_template(self):
         if self.player.id_in_group == 2:
-            body_text = "You are participant 2. Waiting for participant 1 to decide."
+            # body_text = "You are participant 2. Waiting for participant 1 to decide."
+            body_text = "你是角色2。请等候角色1做出决定。"
         else:
-            body_text = 'Please wait'
+            # body_text = 'Please wait'
+            body_text = "请等候"
         return {'body_text': body_text}
 
 

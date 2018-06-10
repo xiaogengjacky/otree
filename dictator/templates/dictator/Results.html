@@ -2,17 +2,19 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Results
+    结果
 {% endblock %}
 
 {% block content %}
     <p>
 
         {% if player.id_in_group == 1 %}
-            You decided to keep <strong>{{ group.kept }}</strong> for yourself.
+{#            You decided to keep <strong>{{ group.kept }}</strong> for yourself.#}
+            你选择了为自己保留<strong>{{ group.kept }}</strong>，分给角色2的金额为<strong>{{ offer }}</strong>。
         {% else %}
-            Participant 1 decided to keep <strong>{{ group.kept }}</strong>, so
-            you got <strong>{{ offer }}</strong>.
+{#            Participant 1 decided to keep <strong>{{ group.kept }}</strong>, so#}
+{#            you got <strong>{{ offer }}</strong>.#}
+            角色1决定为自己保留<strong>{{ group.kept }}</strong>，所以你得到了<strong>{{ offer }}</strong>。
         {% endif %}
 
         {% next_button %}

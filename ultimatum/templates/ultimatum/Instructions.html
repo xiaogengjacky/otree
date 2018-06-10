@@ -3,101 +3,121 @@
 <div class="instructions well well-lg">
 
     <h3 class="panel-sub-heading">
-        Instructions
+{#        Instructions#}
+        实验指南
     </h3>
 
     <div class="panel-body">
 
         <p>
-            First, every player will be randomly paired with another player. In
-            other words, you will have a counterpart, but you will not be told
-            who it is.
-            Your identity will also remain hidden from your counterpart.
+            首先，你将会随机与另外一名参与实验的人被试配对。也就是说，你会跟另一个人一同来完成这个任务，但是你不会知道对方的身份。同时，对方
+            也不会知道你的身份。
+{#            First, every player will be randomly paired with another player. In#}
+{#            other words, you will have a counterpart, but you will not be told#}
+{#            who it is.#}
+{#            Your identity will also remain hidden from your counterpart.#}
         </p>
 
         <p>
-            The two participants in a pair will have two different roles: the
-            <strong>proposer</strong> and the <strong>responder</strong>.
-            You will be assigned randomly to a role, and it will be displayed
-            on the next page.
+            配对的两位被试将会扮演两个不同的角色：<strong>建议者</strong>和<strong>回应者</strong>。你扮演的角色将由电脑随机决定，
+            并且你可以在下一页中查看自己扮演的角色。
+{#            The two participants in a pair will have two different roles: the#}
+{#            <strong>proposer</strong> and the <strong>responder</strong>.#}
+{#            You will be assigned randomly to a role, and it will be displayed#}
+{#            on the next page.#}
         </p>
 
         <p>
-            The two of you will together receive {{ Constants.endowment }}. The
-            experiment is about how to divide this amount.
-            The proposer will make the responder a take-it-or-leave-it offer,
-            which the responder can accept or reject.
-            If the offer is rejected, both will
-            receive {{ Constants.payoff_if_rejected }}.
+            同组的两个被试将共同收到{{ Constants.endowment }}的钱。本实验是关于如何在两人间分配这些钱。建议者将提供给回应者一个建议，
+            回应者可以选择接受或者拒绝这一建议。如果回应者拒绝这一建议，那么建议者和回应者都将得到{{ Constants.payoff_if_rejected }}。
+{#            The two of you will together receive {{ Constants.endowment }}. The#}
+{#            experiment is about how to divide this amount.#}
+{#            The proposer will make the responder a take-it-or-leave-it offer,#}
+{#            which the responder can accept or reject.#}
+{#            If the offer is rejected, both will#}
+{#            receive {{ Constants.payoff_if_rejected }}.#}
 
         </p>
 
         <h4 class="panel-sub-heading">
-            Proposer's role
+{#            Proposer's role#}
+            建议者
         </h4>
 
         <p>
-            The proposer has the following {{ Constants.offer_choices_count }}
-            options on how to divide the {{ Constants.endowment }} between the
-            two players.
+            关于如何分配这{{ Constants.endowment }}，建议者有{{ Constants.offer_choices_count }}种分法
+{#            The proposer has the following {{ Constants.offer_choices_count }}#}
+{#            options on how to divide the {{ Constants.endowment }} between the#}
+{#            two players.#}
         </p>
 
         <ol>
             {% for give, keep in Constants.keep_give_amounts %}
 
-                <li>{{ give }} for the responder (the proposer keeps {{ keep }})</li>
+                <li>{{ give }} 给回应者 (建议者保留 {{ keep }})</li>
+{#                <li>{{ give }} for the responder (the proposer keeps {{ keep }})</li>#}
 
             {% endfor %}
         </ol>
 
         <h4 class="panel-sub-heading">
-            Responder's role
+{#            Responder's role#}
+            回应者
         </h4>
 
         <p>
             {% if not group.use_strategy_method %}
-                The responder can either accept or reject the offer.
+{#                The responder can either accept or reject the offer.#}
+                回应者可以选择接受或者拒绝建议。
             {% else %}
-                While the proposer makes the offer, the responder can select
-                which {{ Constants.offer_choices_count }} offers stated above
-                to accept or reject.
-                After the proposer has made the offer, it will be either
-                accepted or rejected according to the responder's choices.
+                当建议者做出建议的时候，回应者可以选择拒绝或接受{{ Constants.offer_choices_count }}中的建议。当建议者做出建议后，
+                根据回应者已经做出的选择，将会拒绝或者接受建议者的建议。
+{#                While the proposer makes the offer, the responder can select#}
+{#                which {{ Constants.offer_choices_count }} offers stated above#}
+{#                to accept or reject.#}
+{#                After the proposer has made the offer, it will be either#}
+{#                accepted or rejected according to the responder's choices.#}
             {% endif %}
         </p>
 
         <h4 class="panel-sub-heading">
 
-            Results
+{#            Results#}
+            实验结果
 
         </h4>
 
         <p>
             {% if not group.use_strategy_method %}
 
-                In the end, when both players have made their decision, a
-                results page will be displayed.
-                Here the offer will be displayed once more, and whether it was
-                accepted or rejected.
+{#                In the end, when both players have made their decision, a#}
+{#                results page will be displayed.#}
+{#                Here the offer will be displayed once more, and whether it was#}
+{#                accepted or rejected.#}
+                最后，当一组中的两个人都做出决定后，你将会看到本轮的结果。你将看到建议者做出的建议以及这一建议是否被回应者接受。
 
             {% else %}
 
-                A results page will be displayed once both players have made
-                their decisions and those decisions have been implemented.
-                Here, it will be shown whether the offer was accepted or
-                rejected.
+{#                A results page will be displayed once both players have made#}
+{#                their decisions and those decisions have been implemented.#}
+{#                Here, it will be shown whether the offer was accepted or#}
+{#                rejected.#}
+                在结果页面，你将看到那些被选中的决定以及建议是否被接受。
 
             {% endif %}
         </p>
 
 
-        Furthermore, one of the following two payoffs will be displayed:
+{#        Furthermore, one of the following two payoffs will be displayed:#}
+    另外，你将会看到如下两个结果中的一个：
         <ul>
-            <li>If the offer is accepted, the players will receive a payoff
-                accordingly
-            </li>
-            <li>If the offer is rejected, both players will
-                receive {{ Constants.payoff_if_rejected }}</li>
+{#            <li>If the offer is accepted, the players will receive a payoff#}
+{#                accordingly#}
+{#            </li>#}
+            <li>如果建议被接受，建议者和回应者会收到按照该建议划分的钱数</li>
+{#            <li>If the offer is rejected, both players will#}
+{#                receive {{ Constants.payoff_if_rejected }}</li>#}
+            <li>如果建议被拒绝，建议者和回应者都会收到{{ Constants.payoff_if_rejected }}</li>
         </ul>
 
     </div>

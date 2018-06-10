@@ -58,8 +58,8 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'SGD'
-USE_POINTS = True
+REAL_WORLD_CURRENCY_CODE = 'CNY'
+USE_POINTS = False
 
 
 
@@ -102,8 +102,9 @@ ROOMS = [
         'display_name': 'CATI Lab',
         'participant_label_file': '_rooms/catilab.txt',
     },
-    {   'name': 'DemoRoom',
-        'display_name': 'Room for live demo',
+    {   'name': 'D6556',
+        'display_name': 'Behavioral Econ (NCPA)',
+        'participant_label_file': '_rooms/d6556.txt'
     },
     {   'name': 'VirtualRoom',
         'display_name': 'Virtual Room'
@@ -173,12 +174,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['prisoner', 'payment_info'],
     # },
-    # {
-    #     'name': 'ultimatum',
-    #     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
-    # },
+    {
+        'name': 'ultimatum',
+        'display_name': "Ultimatum (randomized: strategy vs. direct response)",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum', 'payment_info'],
+    },
     # {
     #     'name': 'ultimatum_strategy',
     #     'display_name': "Ultimatum (strategy method treatment)",
@@ -219,12 +220,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['principal_agent', 'payment_info'],
     # },
-    # {
-    #     'name': 'dictator',
-    #     'display_name': "Dictator Game",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['dictator', 'payment_info'],
-    # },
+    {
+        'name': 'dictator',
+        'display_name': "Dictator Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator', 'payment_info'],
+    },
     # {
     #     'name': 'matching_pennies',
     #     'display_name': "Matching Pennies",
