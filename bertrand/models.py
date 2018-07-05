@@ -17,7 +17,7 @@ Econometrica: Journal of the Econometric Society, 343-371."
 class Constants(BaseConstants):
     players_per_group = 2
     name_in_url = 'bertrand'
-    num_rounds = 1
+    num_rounds = 10
 
     instructions_template = 'bertrand/Instructions.html'
 
@@ -25,7 +25,8 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        self.group_randomly()
 
 
 class Group(BaseGroup):

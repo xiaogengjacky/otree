@@ -2,31 +2,40 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Results
+{#    Results#}
+    结果
 {% endblock %}
 
 {% block content %}
 
     <p>
         {% if player.is_winner %}
-            You won the auction!
+{#            You won the auction!#}
+            你赢得了拍卖！
             {% if is_greedy %}
-                However, your bid amount was higher than the actual value of the item. Your payoff is therefore zero.
+                然而，你的出价高于拍卖物品的实际价值。你的收益是0。
+{#                However, your bid amount was higher than the actual value of the item. Your payoff is therefore zero.#}
             {% elif player.payoff == 0 %}
-                Your payoff, however, is zero.
+                所以，本轮你获得了0。
+{#                Your payoff, however, is zero.#}
             {% endif %}
         {% else %}
-            You did not win the auction.
+{#            You did not win the auction.#}
+            你没有赢得拍卖。
         {% endif %}
     </p>
 
     <table class="table" style="width:400px">
 
         <tr>
-            <th>Your bid</th>
-            <th>Winning bid</th>
-            <th>Actual value</th>
-            <th>Your payoff</th>
+            <th>你的出价</th>
+            <th>赢家出价</th>
+            <th>实际价值</th>
+            <th>你的收益</th>
+{#            <th>Your bid</th>#}
+{#            <th>Winning bid</th>#}
+{#            <th>Actual value</th>#}
+{#            <th>Your payoff</th>#}
         </tr>
 
     <tr>

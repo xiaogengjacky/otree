@@ -14,7 +14,7 @@ In this one-period implementation, the order of play is randomly determined.
 class Constants(BaseConstants):
     name_in_url = 'stackelberg'
     players_per_group = 2
-    num_rounds = 1
+    num_rounds = 15
 
     instructions_template = 'stackelberg/Instructions.html'
 
@@ -25,7 +25,8 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        self.group_randomly()
 
 
 class Group(BaseGroup):

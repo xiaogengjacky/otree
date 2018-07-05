@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    你的售卖结果
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    计算机随机决定的价格为{{ price }}，你给出的最低接受价格为{{ bid }}。所以你{{ outcome }}卖出你的物品，并且收到了{{ payoff }}。
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

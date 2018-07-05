@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block title %}
+
+        实验页面
+
+{% endblock %}
+
+{% block content %}
+
+    {% include bid_template %}
+
+    {% formfield player.bid label="你的心理价位" %}
+
+    {% next_button %}
+
+
+
+{% endblock %}

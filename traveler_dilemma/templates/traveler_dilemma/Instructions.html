@@ -3,33 +3,41 @@
 <div class="instructions well well-lg">
 
     <h3 class="panel-sub-heading">
-        Instructions
+{#        Instructions#}
+        实验指南
     </h3>
 
     <p>
-        You have been randomly and anonymously paired with another participant.
-        Now please image the following scenario.
+        你随机且匿名的与另外一名被试分为了一组。现在请想象以下的情景。
+{#        You have been randomly and anonymously paired with another participant.#}
+{#        Now please image the following scenario.#}
     </p>
     <p>
-        You and another traveler (the other participant) just returned from a
-        remote island where both of you bought the same antiques.
-        Unfortunately, you discovered that your airline managed to smash the
-        antiques, as they always do. The airline manager assures you of
-        adequate compensation. Without knowing the true value of your antiques,
-        he offers you the following scheme. Both of you simultaneously and
-        independently make a claim for the value of your own antique (ranging
-        from {{ Constants.min_amount }} to {{ Constants.max_amount }}):
+        你和另外一名旅客（与你一组的另一名被试）刚刚从一个偏远的小岛度假归来。你们在岛上购买了同样的古董。不幸的是，你们发现航空公司由于
+        处理不善，你们的古董都碎掉了。航空公司的负责人并不知道古董的真实价值但是他答应按照如下的规则给你们提供足够的赔偿。你和另一名旅客
+        同时且独立的针对各自的损失提交一份赔偿要求（这一赔偿的要求的数额在{{ Constants.min_amount }}与{{ Constants.max_amount }}间）。
+{#        You and another traveler (the other participant) just returned from a#}
+{#        remote island where both of you bought the same antiques.#}
+{#        Unfortunately, you discovered that your airline managed to smash the#}
+{#        antiques, as they always do. The airline manager assures you of#}
+{#        adequate compensation. Without knowing the true value of your antiques,#}
+{#        he offers you the following scheme. Both of you simultaneously and#}
+{#        independently make a claim for the value of your own antique (ranging#}
+{#        from {{ Constants.min_amount }} to {{ Constants.max_amount }}):#}
     </p>
     <ul>
         <li>
-            If both claim the same amount, then this amount will be paid to
-            both.
+            如果你们两人提出的赔偿要求是同样的数额，你们将各自获得这个数额的赔偿。
+{#            If both claim the same amount, then this amount will be paid to#}
+{#            both.#}
         </li>
         <li>
-            If you claim different amounts, then the lower amount will be paid
-            to both. Additionally, the one with lower claim will receive a
-            reward of {{ Constants.adjustment_abs }}; the one with higher claim will
-            receive a penalty of {{ Constants.adjustment_abs }}.
+            如果你们要求的数额不同，那么每个人都将获得低的那个数额。除此之外，对于那个提出更低赔偿要求的人，将会额外获得{{ Constants.adjustment_abs }}；
+            对于提出更高赔偿要求的人，将会被处罚{{ Constants.adjustment_abs }}。
+{#            If you claim different amounts, then the lower amount will be paid#}
+{#            to both. Additionally, the one with lower claim will receive a#}
+{#            reward of {{ Constants.adjustment_abs }}; the one with higher claim will#}
+{#            receive a penalty of {{ Constants.adjustment_abs }}.#}
         </li>
     </ul>
 </div>

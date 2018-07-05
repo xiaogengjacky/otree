@@ -17,7 +17,7 @@ payoff depends on the bid amount and the actual value.<br/>
 class Constants(BaseConstants):
     name_in_url = 'common_value_auction'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 15
 
     instructions_template = 'common_value_auction/Instructions.html'
 
@@ -30,6 +30,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        self.group_randomly()
         for g in self.get_groups():
             g.item_value = round(random.uniform(Constants.min_allowable_bid,
                                                 Constants.max_allowable_bid),

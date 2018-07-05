@@ -17,7 +17,7 @@ for classroom/teaching use.
 class Constants(BaseConstants):
     name_in_url = 'traveler_dilemma'
     players_per_group = 2
-    num_rounds = 1
+    num_rounds = 5
 
     instructions_template = 'traveler_dilemma/Instructions.html'
 

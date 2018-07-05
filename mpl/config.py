@@ -40,7 +40,7 @@ class Constants(BaseConstants):
     # show each lottery pair on a separate page
     # if <one_choice_per_page = True>, each single binary choice between lottery "A" and "B" is shown on a separate page
     # if <one_choice_per_page = False>, all <num_choices> choices are displayed in a table on one page
-    one_choice_per_page = False
+    one_choice_per_page = True
 
     # order choices between lottery pairs randomly
     # if <random_order = True>, the ordering of binary decisions is randomized for display

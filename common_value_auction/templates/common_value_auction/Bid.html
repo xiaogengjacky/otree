@@ -2,18 +2,22 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Bid
+{#    Bid#}
+    出价
 {% endblock %}
 
 {% block content %}
 
     <p>
-        The value of the item is estimated to be {{ player.item_value_estimate }}.
-        This estimate may deviate from the actual value by at most {{ Constants.estimate_error_margin }}.
+    物品的价值估计为{{ player.item_value_estimate }}。
+        这一估值与真实值之间的最大可能差值为{{ Constants.estimate_error_margin }}。
+{#        The value of the item is estimated to be {{ player.item_value_estimate }}.#}
+{#        This estimate may deviate from the actual value by at most {{ Constants.estimate_error_margin }}.#}
     </p>
 
     <p>
-        Please make your bid now. The amount can be between {{ Constants.min_allowable_bid }} and {{ Constants.max_allowable_bid }}, inclusive.
+    现在，请决定你的出价。出价的范围为{{ Constants.min_allowable_bid }}至{{ Constants.max_allowable_bid }}（包含端点值）。
+{#        Please make your bid now. The amount can be between {{ Constants.min_allowable_bid }} and {{ Constants.max_allowable_bid }}, inclusive.#}
     </p>
 
     {% formfield player.bid_amount label="Bid amount" %}

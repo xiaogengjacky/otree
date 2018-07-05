@@ -2,13 +2,15 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Production
+{#    Production#}
+    生产决策
 {% endblock %}
 
 {% block content %}
 
     <p>
-        The other firm produced {{  player.other_player.quantity }} units. How many units will you produce?
+        另一公司决定生产{{  player.other_player.quantity }}单位的产品。你要生产多少单位？
+{#        The other firm produced {{  player.other_player.quantity }} units. How many units will you produce?#}
     </p>
 
     {% formfield player.quantity label='Number of units:' %}

@@ -168,18 +168,32 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 1,
     #     'app_sequence': ['quiz'],
     # },
+    {
+        'name': 'wta_wtp_gap',
+        'display_name': "WTAWTP Gap",
+        'num_demo_participants': 2,
+        'app_sequence': ['wta_wtp_gap', 'payment_info'],
+    },
+
+    {
+        'name': 'kt_framing',
+        'display_name': "Khaneman Tversky",
+        'num_demo_participants': 2,
+        'app_sequence': ['kt_framing', 'payment_info'],
+    },
+
     # {
     #     'name': 'prisoner',
     #     'display_name': "Prisoner's Dilemma",
     #     'num_demo_participants': 2,
     #     'app_sequence': ['prisoner', 'payment_info'],
     # },
-    {
-        'name': 'ultimatum',
-        'display_name': "Ultimatum (randomized: strategy vs. direct response)",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum', 'payment_info'],
-    },
+    # {
+    #     'name': 'ultimatum',
+    #     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum', 'payment_info'],
+    # },
     # {
     #     'name': 'ultimatum_strategy',
     #     'display_name': "Ultimatum (strategy method treatment)",
@@ -220,12 +234,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['principal_agent', 'payment_info'],
     # },
-    {
-        'name': 'dictator',
-        'display_name': "Dictator Game",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator', 'payment_info'],
-    },
+    # {
+    #     'name': 'dictator',
+    #     'display_name': "Dictator Game",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['dictator', 'payment_info'],
+    # },
     # {
     #     'name': 'matching_pennies',
     #     'display_name': "Matching Pennies",
@@ -234,41 +248,41 @@ SESSION_CONFIGS = [
     #         'matching_pennies',
     #     ],
     # },
-    # {
-    #     'name': 'traveler_dilemma',
-    #     'display_name': "Traveler's Dilemma",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['traveler_dilemma', 'payment_info'],
-    # },
+    {
+        'name': 'traveler_dilemma',
+        'display_name': "Traveler's Dilemma",
+        'num_demo_participants': 2,
+        'app_sequence': ['traveler_dilemma', 'payment_info'],
+    },
     # {
     #     'name': 'bargaining',
     #     'display_name': "Bargaining Game",
     #     'num_demo_participants': 2,
     #     'app_sequence': ['bargaining', 'payment_info'],
     # },
-    # {
-    #     'name': 'common_value_auction',
-    #     'display_name': "Common Value Auction",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['common_value_auction', 'payment_info'],
-    # },
-    # {
-    #     'name': 'stackelberg',
-    #     'display_name': "Stackelberg Competition",
-    #     'real_world_currency_per_point': 0.01,
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'stackelberg', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'bertrand',
-    #     'display_name': "Bertrand Competition",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'bertrand', 'payment_info'
-    #     ],
-    # },
+    {
+        'name': 'common_value_auction',
+        'display_name': "Common Value Auction",
+        'num_demo_participants': 3,
+        'app_sequence': ['common_value_auction', 'payment_info'],
+    },
+    {
+        'name': 'stackelberg',
+        'display_name': "Stackelberg Competition",
+        'real_world_currency_per_point': 0.01,
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'stackelberg', 'payment_info'
+        ],
+    },
+    {
+        'name': 'bertrand',
+        'display_name': "Bertrand Competition",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'bertrand', 'payment_info'
+        ],
+    },
     # {
     #     'name': 'real_effort',
     #     'display_name': "Real-effort transcription task",
@@ -305,12 +319,12 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['trust_simple'],
     # },
-    # {
-    #     'name': 'mpl',
-    #     'display_name': "MPL (Individual)",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['mpl', 'survey', 'payment_info'],
-    #  },
+    {
+        'name': 'mpl',
+        'display_name': "MPL (Individual)",
+        'num_demo_participants': 1,
+        'app_sequence': ['mpl', 'survey', 'payment_info'],
+     },
     {
         'name': 'certainty_eq',
         'display_name': "Certainty Equivalent with Amount (Individual)",
@@ -346,40 +360,40 @@ SESSION_CONFIGS = [
 #         'real_world_currency_per_point': 0.05,
 #         'app_sequence': ['cem_list_g', 'gneezy_potters_group', 'survey', 'payment_info'],
 #     },
-# {
-#         'name': 'cem_list_random',
-#         'display_name': "Certainty Equivalent and GP (Group Random Selection)",
-#         'num_demo_participants': 3,
-#         'real_world_currency_per_point': 0.05,
-#         'app_sequence': ['cem_list_random', 'gneezy_potters_random', 'survey', 'payment_info']
-#     },
+    {
+        'name': 'cem_list_random',
+        'display_name': "Certainty Equivalent with List",
+        'num_demo_participants': 3,
+        'real_world_currency_per_point': 0.05,
+        'app_sequence': ['cem_list', 'survey', 'payment_info']
+    },
     # {
     #     'name': 'group_risk',
     #     'display_name': "Group Risky Decision Making",
     #     'num_demo_participants': 3,
     #     'app_sequence': ['cem_list', 'cem_list_g', 'survey', 'payment_info'],
     # },
-    {
-        'name': 'gneezy_potters',
-        'display_name': "Investment Game (GP)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
-    },
-    {
-        'name': 'gneezy_potters_group',
-        'display_name': "Investment Game (GP Group)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
-    },
-    {
-        'name': 'gneezy_potters_random',
-        'display_name': "Investment Game (GP Group Random)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
-    },
+    # {
+    #     'name': 'gneezy_potters',
+    #     'display_name': "Investment Game (GP)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.05,
+    #     'app_sequence': ['gneezy_potters', 'survey', 'payment_info'],
+    # },
+    # {
+    #     'name': 'gneezy_potters_group',
+    #     'display_name': "Investment Game (GP Group)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.05,
+    #     'app_sequence': ['gneezy_potters_group', 'survey', 'payment_info'],
+    # },
+    # {
+    #     'name': 'gneezy_potters_random',
+    #     'display_name': "Investment Game (GP Group Random)",
+    #     'num_demo_participants': 3,
+    #     'real_world_currency_per_point': 0.05,
+    #     'app_sequence': ['gneezy_potters_random', 'survey', 'payment_info'],
+    # },
     {
         'name': 'CE_GP',
         'display_name': "CE+GP (Individual)",

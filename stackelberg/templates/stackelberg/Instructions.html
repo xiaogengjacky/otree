@@ -3,57 +3,70 @@
 <div class="instructions well well-lg">
 
     <h3 class="panel-sub-heading">
-        Instructions
+{#        Instructions#}
+        实验指南
     </h3>
 
     <p>
-        You have been randomly and anonymously paired with another participant.
-        Each of you will represent a firm. Both firms manufacture the same
-        product.
+        在本实验中，你与另外一名参与者被随机分为了一组。你们每人代表一家公司。两个公司生产同样的产品。
+{#        You have been randomly and anonymously paired with another participant.#}
+{#        Each of you will represent a firm. Both firms manufacture the same#}
+{#        product.#}
     </p>
 
     <p>
-        The two of you decide sequentially how many units to manufacture.
-        One of you will decide first. The other will be informed of the units
-        produced by the first one and then decide the units for
-        herself/himself.
-        You will learn the order prior to making any decision.
+        你们二人依序决定自己的公司要生产多少单位的产品。其中一人将会首先决定。第二个决定的人在做决定前将会获知第一个人的决定。在做自己的
+        决定前你就会知道做决定的顺序。
+{#        The two of you decide sequentially how many units to manufacture.#}
+{#        One of you will decide first. The other will be informed of the units#}
+{#        produced by the first one and then decide the units for#}
+{#        herself/himself.#}
+{#        You will learn the order prior to making any decision.#}
     </p>
 
     <p>
-        Your choices can be any number from 0
-        to {{ Constants.max_units_per_player }}.
-        All produced units will be sold, but the more is produced, the lower
-        the unit selling price will be.
+        你的决定可以是从0到{{ Constants.max_units_per_player }}间的任何数值。所有生产的产品都可以在市场上被售出，但是市场上的产品越多，
+        单位产品的售价越低。
+{#        Your choices can be any number from 0#}
+{#        to {{ Constants.max_units_per_player }}.#}
+{#        All produced units will be sold, but the more is produced, the lower#}
+{#        the unit selling price will be.#}
     </p>
 
 
     <p>
-        The unit selling price is:
-    </p>
-
-    <ul>
-        <li>
-            <strong>Unit selling price = {{ Constants.total_capacity }} – Units
-                produced by your firm – Units produced by the other
-                firm</strong>
-        </li>
-    </ul>
-
-    <p>
-        Your profit is therefore:
+{#        The unit selling price is:#}
+        单位产品价格为：
     </p>
 
     <ul>
         <li>
-            <strong>Your profit = Unit selling price × Units produced by your
-                firm</strong>
+            <strong>单位产品价格={{ Constants.total_capacity }} - 自己公司生产的产品数量 - 另一公司生产的产品数量
+{#                Unit selling price = {{ Constants.total_capacity }} – Units#}
+{#                produced by your firm – Units produced by the other#}
+{#                firm#}
+            </strong>
         </li>
     </ul>
 
     <p>
-        For your convenience, these instructions will remain available to you
-        on all subsequent screens of this study.
+        你的利润为：
+{#        Your profit is therefore:#}
+    </p>
+
+    <ul>
+        <li>
+            <strong>你的利润 = 单位产品售价×卖出的产品数量
+{#                Your profit = Unit selling price × Units produced by your#}
+{#                firm#}
+            </strong>
+        </li>
+    </ul>
+
+    <p>
+        你可以在实验过程中随时查看本指南。
+{#        For your convenience, these instructions will remain available to you#}
+{#        on all subsequent screens of this study.#}
     </p>
 
 </div>

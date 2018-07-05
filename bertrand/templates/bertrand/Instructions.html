@@ -3,18 +3,23 @@
 <div class="instructions well well-lg" style="">
 
     <h3 class="panel-sub-heading">
-        Instructions
+{#        Instructions#}
+        实验指南
     </h3>
     <p>
-        You have been randomly and anonymously paired with another participant.
-        Each of you will represent a firm. Each firm manufactures one unit of
-        the same product at no cost.
+        你随机且匿名的与另外一位实验被试被分为了一组。你们将分别代表一家公司。每家公司都生产一单位的相同产品，成本为0。
+{#        You have been randomly and anonymously paired with another participant.#}
+{#        Each of you will represent a firm. Each firm manufactures one unit of#}
+{#        the same product at no cost.#}
     </p>
     <p>
-        Each of you privately sets your price, anything from 0 to {{ Constants.maximum_price }}.
-        The buyer in the market will always buy one unit of the product at the
-        lower price. In case of a tie, the buyer will buy from one of you at
-        random. Your profit is your price if your product is sold and zero
-        otherwise.
+        你们二人将代表公司来进行定价，售价为0到{{ Constants.maximum_price }}中的任何价格。市场中的买家会购买且仅会购买一单位的产品并且他
+        会选择价格低的产品进行购买。如果两家公司的售价相同，买家会随机选择一家公司购买。如果你成功的售出你的产品，你的产品售价即是你的利润，否则
+        你的利润为0。
+{#        Each of you privately sets your price, anything from 0 to {{ Constants.maximum_price }}.#}
+{#        The buyer in the market will always buy one unit of the product at the#}
+{#        lower price. In case of a tie, the buyer will buy from one of you at#}
+{#        random. Your profit is your price if your product is sold and zero#}
+{#        otherwise.#}
     </p>
 </div>

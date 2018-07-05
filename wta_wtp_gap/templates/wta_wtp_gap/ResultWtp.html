@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    你的购买结果
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    计算机随机决定的价格为{{ price }}，你给出的最高能接受的价格为{{ bid }}。所以你{{ outcome }}购买该物品，你将支付{{ payoff }}。
+    </p>
+
+    {% for field in form %}
+        {% formfield field %}
+    {% endfor %}
+
+    {% next_button %}
+
+{% endblock %}

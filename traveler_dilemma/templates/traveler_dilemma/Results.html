@@ -4,23 +4,28 @@
 {% block content %}
     <table class=table style='width: auto'>
         <tr>
-            <td>You claimed</td>
+{#            <td>You claimed</td>#}
+            <td>你要求的金额</td>
             <td>{{ player.claim }}</td>
         </tr>
         <tr>
-            <td>The other traveler claimed</td>
+{#            <td>The other traveler claimed</td>#}
+            <td>另一名旅客要求的金额</td>
             <td>{{ player.other_player.claim }}</td>
         </tr>
         <tr>
-            <td>Winning claim (i.e. lower claim)</td>
+{#            <td>Winning claim (i.e. lower claim)</td>#}
+            <td>赔付的金额(更低的金额)</td>
             <td>{{ group.lower_claim }}</td>
         </tr>
         <tr>
-            <td>Your adjustment</td>
+{#            <td>Your adjustment</td>#}
+            <td>你的调整金额</td>
             <td>{{ player.adjustment }}</td>
         </tr>
         <tr>
-            <td>Thus you receive</td>
+{#            <td>Thus you receive</td>#}
+            <td>你获得了</td>
             <td>{{ player.payoff }}</td>
         </tr>
 

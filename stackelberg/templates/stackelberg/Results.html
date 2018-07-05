@@ -2,37 +2,48 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Results
+{#    Results#}
+    结果
 {% endblock %}
 
 {% block content %}
 
-    <p>The results are shown in the following table.</p>
+{#    <p>The results are shown in the following table.</p>#}
+    <p>下表显示本轮的结果</p>
 
     <table class="table table-test" style="width:400px; margin-bottom:10px">
 
         <tr>
-            <td>Your firm produced:</td>
-            <td>{{ player.quantity }} units</td>
+{#            <td>Your firm produced:</td>#}
+{#            <td>{{ player.quantity }} units</td>#}
+            <td>你的公司生产了：</td>
+            <td>{{ player.quantity }}单位</td>
         </tr>
 
         <tr>
-            <td>The other firm produced:</td>
-            <td>{{ player.other_player.quantity }} units</td>
+{#            <td>The other firm produced:</td>#}
+{#            <td>{{ player.other_player.quantity }} units</td>#}
+            <td>另一公司生产了：</td>
+            <td>{{ player.other_player.quantity }}单位</td>
         </tr>
 
         <tr>
-            <td>Total production:</td>
-            <td>{{ group.total_quantity }} units</td>
+{#            <td>Total production:</td>#}
+{#            <td>{{ group.total_quantity }} units</td>#}
+            <td>总产品数量：</td>
+            <td>{{ group.total_quantity }}单位</td>
         </tr>
 
         <tr>
-            <td style="border-top-width:4px">Unit selling price:</td>
+{#            <td style="border-top-width:4px">Unit selling price:</td>#}
+{#            <td style="border-top-width:4px">{{ Constants.total_capacity }} – {{ group.total_quantity }} = {{ group.price }}</td>#}
+            <td style="border-top-width:4px">单位产品价格：</td>
             <td style="border-top-width:4px">{{ Constants.total_capacity }} – {{ group.total_quantity }} = {{ group.price }}</td>
         </tr>
 
         <tr>
-            <td>Your profit:</td>
+{#            <td>Your profit:</td>#}
+            <td>你的利润：</td>
             <td>{{ player.payoff }}</td>
         </tr>
 

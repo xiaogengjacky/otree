@@ -27,47 +27,45 @@
     <div class="wrapper instructions">
         <p>
             {% blocktrans trimmed with n=Constants.num_choices %}
-                You have an initial balance of {{ endowment }} to start this experiment.
-                In the following, you'll see a series of lists on different screens. On each screen or for each list,
-                you will need to make {{ n }} decisions. Each decision is a paired choice between "Option A"
-                and "Option B". For each row, you will choose either "A" or "B" and record these in the middle column.
+                在本实验中，你一共有{{ endowment }}的钱。以下，你将会在每一个屏幕上看到一个列表。针对每一个列表，你需要做出{{ n }}个选择。
+                每一个选择都是左（A）右（B）选项的一个配对。对于列表中的每一行，你需要选择"A"或者"B"然后利用中间的单选按钮记录你的选择。
             {% endblocktrans %}
         </p>
         <p>
             {% blocktrans trimmed with hi=lottery_hi lo=lottery_lo %}
-                "Option A" is a lottery that pays a higher amount with certain probabilities and a lower amount otherwise;
-                "Option B" yields a varying amount of payoff for sure, i.e. with a probability of 100%.
+
+                "A"选项是一张彩票，这张彩票会以一个固定的概率支付一个较高的报酬，以余下的概率支付一个较低的报酬。"B"选项是一个固定的报酬，
+                但是会在列表中从上至下有所变化。
             {% endblocktrans %}
         </p>
         <p>
             {% blocktrans trimmed with n=Constants.num_choices %}
-                After you have recorded all of your choices for all lists, one list will be randomly chosen to calculate
-                payment. You payment will be determined by a randomly chosen decision out of the {{ n }} decisions in
-                that list. If you chose to opt for "Option A" in this decision, it will be randomly determined (according
-                to the specified probability) whether the low or high payoff will be your payoff; if you chose
-                to opt for "Option B", the respective sure amount will be your payoff.
+
+                当你做出了所有的选择后，某一屏上的列表将会被随机选中来计算你在本实验中的报酬。在被选中的列表中，计算机会在你做出的{{ n }}个
+                选择中随机选出一行并以你的这个决定来计算你的报酬。如果你选择了"A"选项也就是彩票，计算机会根据彩票中列出的概率来决定你是否
+                赢得了彩票。如果你赢了，那么你会收到那个高的金额，否则将会收到低的金额。如果你选择了"B"选项，该选项中列出的金额就是你的报酬。
             {% endblocktrans %}
         </p>
         <p>
 
             {% blocktrans trimmed with m=Constants.num_rounds %}
-            Even though you will make decisions for all {{ m }} lists, only one of the {{ m }} lists will be chosen for payment.
+
+                虽然你会在{{ m }}个屏幕上作出一系列的决定，但是只有一个屏幕上的列表会被选中。
             {% endblocktrans %}
             {% blocktrans trimmed with n=Constants.num_choices %}
-                Similarly, though you make {{ n }} choices for the chosen list, only one of your decisions will be chosen
-                to implement payment. Since you will not know in advance which list or which decision will be used, you
-                should treat each list and each decision as if they have been chosen. Each list has an equal chance of
-                being used in the end. Each decision you made for the chosen list also shares an equal chance of determining
-                your payoff.
+
+                与此相似，虽然你在每一个列表中做出{{ n }}个决定，只有一个决定会被用来计算你的最后报酬。因为你（以及实验人员）事先并不知道
+                哪个列表或者哪一行会被选中，你在做出选择的时候应该认真对待每一个列表中的每一个决定，就像是那个决定会最后决定你的报酬一样。
+                每一个列表（屏幕）有一个相等的概率被抽中。在那个抽中的列表中，每一行的决策也有一个相等的概率被抽中。
             {% endblocktrans %}
         </p>
         <p>
-            {% blocktrans trimmed with n=num_choices %}
-                To summarize: You will make {{ n }} choices for each list; for each decision you will have to choose between
-                "Option A" and "Option B". You may choose A for some decision rows and B for other rows. When
-                you are finished, one of the lists will be randomly picked and one of the {{ n }} decisions in that list
-                will be randomly chosen for your payoff. If you decided for "Option A", a random number will be drawn to
-                determine your earnings; if you decided for "Option B" you'll receive the respective sure amount.
+            {% blocktrans trimmed with n=Constants.num_choices %}
+
+                总结一下：针对每一个列表，你将会做出{{ n }}个决定。其中的每一个决定你都要选择"A"或者"B"。你可以在一些行中选择"A"然后在另一些行
+                选择"B"。当你完成所有的选择后，某一个列表会被随机选中，你针对该列表做出的{{ n }}个选择，会有一个被随机选中。在这个选择中，如果
+                你选择了"A"选项，计算机就根据彩票的概率来产生一个随机数进而决定你是否赢得彩票。如果你选择了"B"选项，你就直接获得"B"中给出的
+                金额。
             {% endblocktrans %}
         </p>
     </div>

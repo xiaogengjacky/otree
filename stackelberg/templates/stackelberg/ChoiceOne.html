@@ -2,13 +2,15 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Production
+{#    Production#}
+    生产决策
 {% endblock %}
 
 {% block content %}
 
     <p>
-        You are to decide first. How many units will you produce?
+        你将首先做决定。你要生产多少单位的产品？
+{#        You are to decide first. How many units will you produce?#}
     </p>
 
     {% formfield player.quantity label='Number of units:' %}
