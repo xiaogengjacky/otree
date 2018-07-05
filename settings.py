@@ -114,8 +114,8 @@ ROOMS = [
 
 mturk_hit_settings = {
     'keywords': ['bonus', 'study'],
-    'title': 'Title for your experiment',
-    'description': 'Description for your experiment',
+    'title': 'mturk test',
+    'description': 'this is a test',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 60,
@@ -132,7 +132,7 @@ mturk_hit_settings = {
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.00,
-    'participation_fee': 0.00,
+    'participation_fee': 0.01,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
