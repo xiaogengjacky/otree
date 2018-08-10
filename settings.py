@@ -108,7 +108,10 @@ ROOMS = [
     },
     {   'name': 'VirtualRoom',
         'display_name': 'Virtual Room'
-    }
+    },
+    {   'name': 'OnlineSurvey',
+        'display_name': 'Online Housing Survey',
+        'participant_label_file': '_rooms/OnlineSurvey.txt'}
 ]
 
 
