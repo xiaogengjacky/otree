@@ -23,6 +23,6 @@ class Constants(BaseConstants):
     probability = (0.05, 0.25, 0.50, 0.75, 0.95, 0.05, 0.25, 0.50, 0.75, 0.95)
     # multiplier = return rate + 1
     # num_rounds = len(probability)
-    num_rounds = 3
+    num_rounds = 10
     # toggle for results
     results = False

@@ -58,8 +58,8 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'CNY'
-USE_POINTS = False
+REAL_WORLD_CURRENCY_CODE = 'SGD'
+USE_POINTS = True
 
 
 
@@ -171,19 +171,19 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 1,
     #     'app_sequence': ['quiz'],
     # },
-    {
-        'name': 'wta_wtp_gap',
-        'display_name': "WTAWTP Gap",
-        'num_demo_participants': 2,
-        'app_sequence': ['wta_wtp_gap', 'payment_info'],
-    },
-
-    {
-        'name': 'kt_framing',
-        'display_name': "Khaneman Tversky",
-        'num_demo_participants': 2,
-        'app_sequence': ['kt_framing', 'payment_info'],
-    },
+    # {
+    #     'name': 'wta_wtp_gap',
+    #     'display_name': "WTAWTP Gap",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['wta_wtp_gap', 'payment_info'],
+    # },
+    #
+    # {
+    #     'name': 'kt_framing',
+    #     'display_name': "Khaneman Tversky",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['kt_framing', 'payment_info'],
+    # },
 
     # {
     #     'name': 'prisoner',
@@ -251,41 +251,41 @@ SESSION_CONFIGS = [
     #         'matching_pennies',
     #     ],
     # },
-    {
-        'name': 'traveler_dilemma',
-        'display_name': "Traveler's Dilemma",
-        'num_demo_participants': 2,
-        'app_sequence': ['traveler_dilemma', 'payment_info'],
-    },
+    # {
+    #     'name': 'traveler_dilemma',
+    #     'display_name': "Traveler's Dilemma",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['traveler_dilemma', 'payment_info'],
+    # },
     # {
     #     'name': 'bargaining',
     #     'display_name': "Bargaining Game",
     #     'num_demo_participants': 2,
     #     'app_sequence': ['bargaining', 'payment_info'],
     # },
-    {
-        'name': 'common_value_auction',
-        'display_name': "Common Value Auction",
-        'num_demo_participants': 3,
-        'app_sequence': ['common_value_auction', 'payment_info'],
-    },
-    {
-        'name': 'stackelberg',
-        'display_name': "Stackelberg Competition",
-        'real_world_currency_per_point': 0.01,
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'stackelberg', 'payment_info'
-        ],
-    },
-    {
-        'name': 'bertrand',
-        'display_name': "Bertrand Competition",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'bertrand', 'payment_info'
-        ],
-    },
+    # {
+    #     'name': 'common_value_auction',
+    #     'display_name': "Common Value Auction",
+    #     'num_demo_participants': 3,
+    #     'app_sequence': ['common_value_auction', 'payment_info'],
+    # },
+    # {
+    #     'name': 'stackelberg',
+    #     'display_name': "Stackelberg Competition",
+    #     'real_world_currency_per_point': 0.01,
+    #     'num_demo_participants': 2,
+    #     'app_sequence': [
+    #         'stackelberg', 'payment_info'
+    #     ],
+    # },
+    # {
+    #     'name': 'bertrand',
+    #     'display_name': "Bertrand Competition",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': [
+    #         'bertrand', 'payment_info'
+    #     ],
+    # },
     # {
     #     'name': 'real_effort',
     #     'display_name': "Real-effort transcription task",
@@ -322,33 +322,33 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['trust_simple'],
     # },
-    {
-        'name': 'mpl',
-        'display_name': "MPL (Individual)",
-        'num_demo_participants': 1,
-        'app_sequence': ['mpl', 'survey', 'payment_info'],
-     },
-    {
-        'name': 'certainty_eq',
-        'display_name': "Certainty Equivalent with Amount (Individual)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['certainty_eq', 'survey', 'payment_info'],
-     },
-    {
-        'name': 'certainty_eq_group',
-        'display_name': "Certainty Equivalent with Amount (Group Voting)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['certainty_eq_group', 'survey', 'payment_info'],
-     },
-{
-        'name': 'certainty_eq_random',
-        'display_name': "Certainty Equivalent with Amount (Random)",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['certainty_eq_random', 'survey', 'payment_info'],
-     },
+#     {
+#         'name': 'mpl',
+#         'display_name': "MPL (Individual)",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['mpl', 'survey', 'payment_info'],
+#      },
+#     {
+#         'name': 'certainty_eq',
+#         'display_name': "Certainty Equivalent with Amount (Individual)",
+#         'num_demo_participants': 3,
+#         'real_world_currency_per_point': 0.05,
+#         'app_sequence': ['certainty_eq', 'survey', 'payment_info'],
+#      },
+#     {
+#         'name': 'certainty_eq_group',
+#         'display_name': "Certainty Equivalent with Amount (Group Voting)",
+#         'num_demo_participants': 3,
+#         'real_world_currency_per_point': 0.05,
+#         'app_sequence': ['certainty_eq_group', 'survey', 'payment_info'],
+#      },
+# {
+#         'name': 'certainty_eq_random',
+#         'display_name': "Certainty Equivalent with Amount (Random)",
+#         'num_demo_participants': 3,
+#         'real_world_currency_per_point': 0.05,
+#         'app_sequence': ['certainty_eq_random', 'survey', 'payment_info'],
+#      },
 #     {
 #         'name': 'cem_list',
 #         'display_name': "Certainty Equivalent and GP (Individual Choice)",
@@ -363,13 +363,13 @@ SESSION_CONFIGS = [
 #         'real_world_currency_per_point': 0.05,
 #         'app_sequence': ['cem_list_g', 'gneezy_potters_group', 'survey', 'payment_info'],
 #     },
-    {
-        'name': 'cem_list_random',
-        'display_name': "Certainty Equivalent with List",
-        'num_demo_participants': 3,
-        'real_world_currency_per_point': 0.05,
-        'app_sequence': ['cem_list', 'survey', 'payment_info']
-    },
+#     {
+#         'name': 'cem_list_random',
+#         'display_name': "Certainty Equivalent with List",
+#         'num_demo_participants': 3,
+#         'real_world_currency_per_point': 0.05,
+#         'app_sequence': ['cem_list', 'survey', 'payment_info']
+#     },
     # {
     #     'name': 'group_risk',
     #     'display_name': "Group Risky Decision Making",
